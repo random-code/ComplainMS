@@ -1,0 +1,73 @@
+<?php
+require_once("_constants.php");
+include("Authorize.php");
+require_once("General.php");
+
+
+$ffcityid=$_REQUEST['city'];
+if($ffcityid =="")
+$ffcityid=1;
+
+require_once ("{$constant['class_path']}/islayout.php");
+$lay = new IS_Layout("{$constant['temple_path']}/RealTimeMonitoring.htm");
+$lay->replace('TF_LeftNav',$constant['LeftNavigation']);
+$lay->replace('TF_IMAGE_PATH',$constant['images_path']);
+$lay->replace('TF_TEMP_PATH',$constant['temple_path']);
+
+$lay->replace('TF_header',$constant['header']);
+$lay->replace('TF_lefttitle',"Cpanel");
+$lay->replace('TF_LOGO',"<img border='0' src='img001.JPG' width='91' height='108'>");
+
+
+$lay->replace('TF_AdminName',GetAdminName($AUID));
+$lay->replace('TF_MSG',$err);
+
+
+	$lay->replace('TF_EXT',"");
+	$lay->replace('TF_WebPassword',"");
+	$lay->replace('TF_Name',"");
+	$lay->replace('TF_DirectPhone',"");
+	$lay->replace('TF_FaxNumber',"");
+	$lay->replace('TF_ForwardingNumber',"");
+	$lay->replace('TF_ZapChannel',"");
+	
+$lay->replace('TF_Deparment',$Tmp);
+
+$strSQL		= "
+select id,name from tblcity";
+$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+$select = "<select name=city onChange='func1();'>";
+while($myRow=mysql_fetch_array($QueryResult))
+{
+	$id							=$myRow['id'];		
+	$name							=$myRow['name'];		
+	$selected ="";
+	if($id == $ffcityid)
+	$selected ="selected";
+	$select .= "<option value=$id $selected>$name</option>\n";
+}
+$select .= "</select>";
+
+$lay->replace('TF_CITY',$select);
+
+
+$strSQL		= "
+select id,name from tblsector where cityid='$ffcityid'";
+$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+$select="";
+while($myRow=mysql_fetch_array($QueryResult))
+{
+	$id							=$myRow['id'];		
+	$name							=$myRow['name'];		
+	$select .= "<tr><td align=right>$name</td>\n";
+	$select .= "<td></td>\n";
+	$select .= "<td><input type=\"checkbox\" name=\"sector[]\" value=\"$id\"></td></tr>\n";
+}
+
+$lay->replace('TF_SECTOR',$select);
+
+
+$lay->display();
+
+exit;		
+?>	

@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>AllCallSoft-Agent Panel</title>
+<style type="text/css">
+<!--
+.header {
+	background-image: url(images/header_bg.jpg);
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.style1 {
+	color: #0000FF;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 12px;
+}
+.style11 {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; }
+.style12 {color: #FF0000}
+.style2 {font-size: small}
+.style5 {	color: #FF0000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+}
+.style6 {	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+}
+.style7 {	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+.style8 {font-size: 10px}
+.style9 {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; }
+.style4 {font-size: x-small}
+.style13 {font-size: 16px; font-weight: bold; }
+.style14 {color: #000000}
+.style15 {font-size: 18px; font-weight: bold; }
+.style16 {font-size: 24px; font-weight: bold; }
+.style17 {font-size: 9px}
+.style18 {	font-family: "Courier New", Courier, mono;
+	font-weight: bold;
+}
+.style3 {font-family: "Courier New", Courier, mono}
+-->
+</style>
+</head>
+<body onLoad="Start();">
+<table  width="100%" class="header" border="0" cellpadding="0" cellspacing="0" >
+  <!--DWLayoutTable-->
+  <tr align="right">
+    <td width="100%" height="257" align="center" valign="middle"><img src="images/text1.jpg" width="328" height="101" /></td>
+    <td width="450" align="right"  valign="top"><img src="images/banner.jpg" width="450" height="257" /></td>
+  </tr>
+  <tr>
+    <td height="0"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td height="1"></td>
+    <td><img src="spacer.gif" alt="" width="450" height="1" /></td>
+  </tr>
+</table>
+
+
+<table width="100%"  border="0" cellspacing="0" cellpadding="0" height="608">
+  <tr>
+    <td width="11%" height="589" valign="top" class="style1">&nbsp;</td>
+    <td width="67%" valign="top">&nbsp;
+      &nbsp;
+      <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="79%" valign="top"><table width="98%"  border="0" align="center" cellpadding="0" cellspacing="0">
+              <tr>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td></td>
+              </tr>
+              <tr>
+                <td><table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td><table width="100%"  border="0" cellpadding="1" cellspacing="1" bgcolor="#EBF0BF">
+                          <tr>
+                            <td height="20" bgcolor="#FFFFFF" class="heading_text">&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td height="20" bgcolor="#FFFFFF" class="heading_text"><div align="center" class="style3" ><br />
+                            </div></td>
+                          </tr>
+                          <tr>
+                            <td height="21" bgcolor="#F7F9E6" class="heading_text"><font color="#006633"><strong>[TF_MSG]</strong></font></td>
+                          </tr>
+                      </table></td>
+                    </tr>
+                    <tr>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td><table width="100%"  border="0" cellpadding="1" cellspacing="1" bgcolor="#EBF0BF">
+                          <tr>
+                            <td height="20" bgcolor="#FFFFFF"><div class="heading_text" align="center"></div></td>
+                          </tr>
+                          <tr>
+                            <td height="187" align="left" valign="top" bgcolor="#FFFFFF"><table width="568" border="0">
+                                <form action="LoginAction.php"	 method="post" name="myForm" id="myForm">
+                                  <tr>
+                                    <td width="85" class="heading_text"><div align="right" ><font color="#003333">User</font> </div></td>
+                                    <td width="10" bgcolor="#FFFFFF">&nbsp;</td>
+                                    <td width="459"><div align="left">
+                                        <input name="uid" type="text" id="uid" maxlength="30" />
+                                    </div></td>
+                                  </tr>
+                                  <tr>
+                                    <td class="heading_text"><div align="right" ><font color="#003333">Password</font></div></td>
+                                    <td bgcolor="#FFFFFF">&nbsp;</td>
+                                    <td><div align="left">
+                                        <input name="pwd" type="password" id="pwd" maxlength="30" />
+                                    </div></td>
+                                  </tr>
+                                  <tr>
+                                    <td class="heading_text"><div align="right" ><font color="#003333">Extention</font></div></td>
+                                    <td bgcolor="#FFFFFF">&nbsp;</td>
+                                    <td><div align="left">
+                                        <input name="ext" type="text" id="ext" size="10" maxlength="10" />
+                                    </div></td>
+                                  </tr>
+                                  <tr>
+                                    <td><div align="right" class="style17"></div></td>
+                                    <td bgcolor="#FFFFFF">&nbsp;</td>
+                                    <td><div align="left">
+                                        <input type="submit" name="Submit" value="Log in" />
+                                    </div></td>
+                                  </tr>
+                                </form>
+                              <tr>
+                                  <td height="21">&nbsp;</td>
+                                <td bgcolor="#FFFFFF">&nbsp;</td>
+                                <td>&nbsp;</td>
+                              </tr>
+                            </table></td>
+                          </tr>
+                      </table></td>
+                    </tr>
+                    <tr>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td><table width="100%"  border="0" align="center" cellpadding="1" cellspacing="1" bgcolor="#CAD851">
+                          <tr>
+                            <td bgcolor="#FFFFFF"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                <tbody>
+                                  <tr>
+                                    <td valign="top" width="100%"><!-- start Recieved Calls-->
+                                        <!-- End Recieved Calls-->
+                                        <!--Start Placed Calls--></td>
+                                  </tr>
+                                </tbody>
+                            </table></td>
+                          </tr>
+                      </table></td>
+                    </tr>
+                </table></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td height="144" align="center">&nbsp;</td>
+              </tr>
+          </table></td>
+        </tr>
+        <tr>
+          <td valign="top" bgcolor="#FFFFFF">&nbsp;</td>
+          <td valign="top"><table width="100%"  border="0" cellspacing="1" cellpadding="1">
+              <tr>
+                <td align="center" class="text">&nbsp;</td>
+              </tr>
+          </table></td>
+        </tr>
+      </table>
+    <div align="center" id="mydiv"></div></td>
+    <td width="22%" valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top">&nbsp;</td>
+    <td valign="top">&nbsp;</td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <!--DWLayoutTable-->
+
+  <tr>
+    <td width="643" height="96" background="images/lower.jpg">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>
+
+<map name="Map" id="Map">
+  <area shape="rect" coords="29,12,235,41" href="#" />
+</map>
+</body>
+</html>

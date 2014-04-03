@@ -1,0 +1,178 @@
+<html>
+<head>
+<title>InBound Call Center System</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="[TF_TEMP_PATH]/mystyles.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.style2 {font-size: small}
+.style4 {font-size: x-small}
+.style6 {font-size: 16px; font-weight: bold; }
+.style8 {color: #000000}
+.style9 {font-size: 18px; font-weight: bold; }
+-->
+</style>
+<script type="text/JavaScript">
+<!--
+function MM_jumpMenu(targ,selObj,restore){ //v3.0
+  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+  if (restore) selObj.selectedIndex=0;
+}
+//-->
+</script>
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="778" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="10" valign="top" background="[TF_IMAGE_PATH]/pix.gif"><img src="[TF_IMAGE_PATH]/pix.gif" width="1" height="1"></td>
+    <td width="767" valign="top"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td valign="top"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td>&nbsp;</td>
+              </tr>
+              <tr> 
+                <td>
+				<table width="100%"  border="0" cellspacing="0" cellpadding="0" id="table2">
+              <tr> 
+                [TF_header]
+              </tr>
+            </table></td>
+              </tr>
+              <tr> 
+                <td background="[TF_IMAGE_PATH]/pix.gif" bgcolor="#CC9900"><div align="center" class="style2">&nbsp;</div></td>
+              </tr>
+            </table></td>
+      </tr>
+      <tr>
+        <td height="554" valign="top">
+		<table width="100%"  border="0" cellspacing="0" cellpadding="0" height="608">
+          <tr>
+         <td width="79%" height="589" align="left" valign="top"><table width="96%"  border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr> 
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr> 
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td height="19" align="left" valign="top">
+                        <table width="100%" border="1">
+                        </table>                      </td>
+                    </tr>
+                    <tr>
+                      <td height="267" align="left" valign="top"><div align="left">
+                          <table width="85" border="1" cellpadding="1" cellspacing="1">
+                          </table>
+                          <span class="style2"><a href="Home.php">Home</a> | <a href="agent_sessions.php"></a><a href="Home.php?act=0">Be 
+                    Ready for Call</a>| <a href="Search.php">Search Customer</a>| <a href="RealTimeMonitoring.php"> </a><a href="AddCustomer.php">Add 
+                    Customer</a> |<a href="#">View Reminders</a>|<a href="SignOut.php">Sign 
+                    Out </a></span> </div>
+                        <form name="form1" method="get" >
+                          <table width="696" border="0" cellpadding="0" cellspacing="0">
+                            
+                            
+                            
+                            <tr>
+                              <td width="696" class="style4">&nbsp;</td>
+                            </tr>
+                            <tr>
+                              <td class="style4">&nbsp;</td>
+                            </tr>
+                          </table>
+                          <table width="923" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td colspan="5"><div align="center">[TF_MSG]</div></td>
+                            </tr>
+                            <tr>
+                              <td colspan="5"><div align="center"><span class="style6">New Inquiry (Compaign:[TF_COMP]) </span></div></td>
+                            </tr>
+                            <tr>
+                              <td colspan="5"><div align="center">Caller PhoneNumber  :
+                                <input name="callerphone" type="text" id="callerphone" value="[TF_PhoneNumber]" size="20">
+                                <input name="campid" type=hidden value=[TF_COMPID]>
+                              </div></td>
+                            </tr>
+                            <tr>
+                              <td colspan="5"><div align="center">Caller Full Name  :
+                                  <input name="name" type="text" id="name" size="70">
+                              </div></td>
+                            </tr>
+                            
+                            <tr>
+                              <td colspan="5"><div align="center">Address  :
+                                  <input name="address" type="text" id="address" size="70">
+                              </div></td>
+                            </tr>
+                            
+                            <tr>
+                              <td colspan="5"><div align="center">Phone  :
+                                <input name="phone" type="text" id="phone" size="70">
+                              </div></td>
+                            </tr>
+                            <tr>
+                              <td colspan="5"><div align="center">Cell  :
+                                <input name="cell" type="text" id="cell" size="70">
+                              </div></td>
+                            </tr>
+                            <tr>
+                              <td colspan="5"><div align="center">Office Number   :
+                                <input name="officeno" type="text" id="officeno" size="70">
+                              </div></td>
+                            </tr>
+                            
+                            <tr>
+                              <td colspan="5"><div align="center">Subject : 
+                                  <input name="subject" type="text" id="subject" size="70">
+                              </div></td>
+                            </tr>
+                            
+                            <tr>
+                              <td colspan="5"><div align="center">Remarks :                              
+                                  <textarea name="message" cols="60" rows="8" id="message"></textarea>
+                              </div></td>
+                            </tr>
+                            <tr>
+                              <td colspan="5" class="style2"><div align="center" class="style4"></div></td>
+                            </tr>
+                            
+                            <tr>
+                              <td colspan="5" class="style2"><div align="center">
+                                <input name="Submit" type="submit" id="Submit" value="Update">
+                              </div></td>
+                            </tr>
+                            <tr>
+                              <td width="210">&nbsp;</td>
+                              <td width="210">&nbsp;</td>
+                              <td width="235">&nbsp;</td>
+                              <td width="120">&nbsp;</td>
+                              <td width="136"><div align="right"></div></td>
+                            </tr>
+                            <tr>
+                              <td>&nbsp;</td>
+                              <td>&nbsp;</td>
+                              <td>&nbsp;</td>
+                              <td>&nbsp;</td>
+                              <td width="136"><div align="right"></div></td>
+                            </tr>
+                          </table>
+                        </form>
+                        <p>&nbsp;</p></td>
+                    </tr>
+                </table></td>
+          </tr>
+          <tr>
+            <td valign="top"><table width="100%"  border="0" cellspacing="1" cellpadding="1">
+                    <tr> 
+                      <td align="center" class="text">&nbsp;</td>
+                    </tr>
+                  </table></td>
+          </tr>
+        </table></td>
+      </tr>
+      </table></td>
+    <td width="10" valign="top" background="[TF_IMAGE_PATH]/pix.gif"><img src="[TF_IMAGE_PATH]/pix.gif" width="1" height="1"></td>
+  </tr>
+</table>
+</body>
+</html>

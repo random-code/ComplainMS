@@ -1,0 +1,112 @@
+<?php
+	require_once("_Db.php"); //will also includes  _constants.php
+	$ffuid		= $_POST['uid'];
+	$ffpwd		= $_POST['pwd'];
+	$ffext		= $_POST['ext'];
+
+	
+	#print("\$ffext : $ffext<br>");
+#	print("\$ffpwd : $ffpwd<br>");
+	#exit;
+	$agentcode="";
+$errstr="";
+	if (($ffuid == "")||($ffpwd == "")){
+	$errstr .= "User Name and Password Cant be left empty.<br>";
+	}
+$strSQL=""	;
+$QueryResult="" ;
+$myRow="";
+	if($errstr == "")
+	{
+	$strSQL		= "
+	select * from  tblagent
+	where agentname=\"$ffuid\"
+	and agentpassword=\"$ffpwd\"
+	and agentrole =3
+	";
+//	print "\$strSQL : $strSQL<br>";
+	$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+	$myRow		= mysql_fetch_array($QueryResult);	
+		if ($myRow['agentname'] == ""){
+					$errstr .= "Authentication failed.<br>";
+
+								}
+
+$agentcode=$myRow['agentcode'];
+
+	$strSQL		= "
+	select * from  tblagent
+	where exten='$ffext' and
+	agentname <> \"$ffuid\"
+	";
+//	print "\$strSQL : $strSQL<br>";
+	$QueryResult1	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+#$myRow1		= mysql_fetch_array($QueryResult1)	
+
+		if ($myRow1		= mysql_fetch_array($QueryResult1)){
+					$errstr .= "User with same extention is already registered , please contact admin.<br>";
+
+								}
+								
+		if($errstr=="")
+		{						
+
+	$strSQL		= "
+	update  tblagent
+	set agentactive=1 ,exten='$ffext'
+	where agentname=\"$ffuid\"
+	and agentpassword=\"$ffpwd\"
+	and agentrole =3
+
+	";
+//	print "\$strSQL : $strSQL<br>";
+	$QueryResult1	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+
+
+		}
+								
+								
+	}
+	
+	if($errstr != "")
+	{
+	//print "\$errstr : $errstr";
+	require_once ("{$constant['class_path']}/islayout.php");
+	$lay = new IS_Layout("{$constant['temple_path']}/login.htm");
+	$lay->replace('TF_IMAGE_PATH',$constant['images_path']);
+	$lay->replace('TF_MSG',$errstr);
+	$lay->display();
+	}	
+	else
+	{
+	#header("Location: {$constant['relpath']}/Home.php");
+	if(isset($_SESSION['AUID']))
+	{
+	//session_destroy();
+	}
+	#print "\$_SESSION['AUID'] : " . $_SESSION['AUID'];
+	#exit;
+	
+		session_start();
+		
+	//if (!isset($_SESSION['AUID'])){
+		if(1==1){
+
+		$SID			= substr(md5(uniqid(rand())), 0, 40); 
+		$UID			= $ffuid;
+	//	print("\$UID : $UID<br>");
+	//	exit;
+		$_SESSION['AUID']	= $UID;
+		$_SESSION['SID']	= $SID;
+		$_SESSION['UID']	= "$ffext";
+//		print("\$AUID : $AUID<br>");
+//		print "\$AUID : " . $_SESSION['AUID'];
+
+}
+		
+	print "<META HTTP-EQUIV=Refresh CONTENT='0; URL={$constant['relpath']}/Home.php'> ";
+//	print "<img src=\"/forms/images/Loading.jpg\" width=\"149\" height=\"112\"> ";
+	}
+		
+		
+?>

@@ -1,0 +1,98 @@
+<?php
+require_once("_constants.php");
+include("Authorize.php");
+require_once("General.php");
+
+$name=$_REQUEST['name'];
+
+#print "\$name:$name";
+#exit;
+
+$name = strtolower($name);
+
+
+require_once ("{$constant['class_path']}/islayout.php");
+$lay = new IS_Layout("{$constant['temple_path']}/Customer2.htm");
+$lay->replace('TF_LeftNav',$constant['LeftNavigation']);
+$lay->replace('TF_IMAGE_PATH',$constant['images_path']);
+$lay->replace('TF_TEMP_PATH',$constant['temple_path']);
+
+$lay->replace('TF_header',$constant['header']);
+$lay->replace('TF_lefttitle',"");
+$lay->replace('TF_LOGO',"<img border='0' src='img001.JPG' width='91' height='108'>");
+
+
+$lay->replace('TF_AdminName',GetAdminName($AUID));
+$lay->replace('TF_EXT',"$UID");
+$lay->replace('TF_AGENT',GetAdminID("$UID"));
+
+$lay->replace('TF_MSG',$err);
+
+
+$str="";
+$strSQL		= "
+select * from tblcustomer";
+
+if($name != "")
+{
+$strSQL		= "
+select * from tblcustomer a where (lower(name) like '%$name%' or lower(mname) like '%$name%'
+or lower(lname) like '%$name%' or lower(company) like  '%$name%'
+or lower(email)  like '%$name%'
+or lower(phone) like '%$name%'
+or lower(cell) like '%$name%'
+or lower(a.accno) like '%$name%'
+)
+
+
+";
+
+	
+	}
+$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+$select = "<select name=rate>";
+$loopcnt=0;
+while($myRow=mysql_fetch_array($QueryResult))
+{
+	$name=$myRow['name'];
+	$mname=$myRow['mname'];
+	$lname=$myRow['lname'];
+	$company=$myRow['company'];
+	$email=$myRow['email'];
+	$city=$myRow['city'];
+	$state=$myRow['state'];
+	$country=$myRow['country'];
+	$phone=$myRow['phone'];
+	$cell=$myRow['cell'];
+	$accno=$myRow['accno'];
+	$pin=$myRow['pwd'];
+	$loopcnt++;
+	
+	
+	
+	
+	
+	
+$str .="                                          <tr>                               
+																						 <td><div align=\"left\">$loopcnt</div></td>
+                                            <td><div align=\"left\"><a href=linedetail.php?line=&accno=$accno>$name $mname $lname</a></div></td>
+                                            <td><div align=\"left\">$accno</div></td>
+                                            <td><div align=\"left\">$company</div></td>
+                                            <td><div align=\"left\">$email</div></td>
+                                            <td><div align=\"left\">$city,$state,$country</div></td>
+                                            <td><div align=\"left\">$cell,$phone</div></td>
+                                          </tr>                              
+                                          
+        ";
+}
+$select .= "</select>";
+
+$lay->replace('TF_DATA',$str);
+$lay->display();
+
+exit;		
+?>	
+
+
+
+                                          

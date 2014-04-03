@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>AllCallSoft-Agent Panel</title>
+<style type="text/css">
+<!--
+.header {
+	background-image: url(images/header_bg.jpg);
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.style1 {
+	color: #0000FF;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 12px;
+}
+.style11 {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; }
+.style12 {color: #FF0000}
+.style2 {font-size: small}
+.style5 {	color: #FF0000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+}
+.style6 {	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+}
+.style7 {	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+.style8 {font-size: 10px}
+.style9 {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; }
+.style4 {font-size: x-small}
+.style13 {font-size: 16px; font-weight: bold; }
+.style14 {color: #000000}
+.style15 {font-size: 18px; font-weight: bold; }
+.style16 {font-size: 24px; font-weight: bold; }
+-->
+</style>
+</head>
+<body onLoad="Start();">
+<table  width="100%" class="header" border="0" cellpadding="0" cellspacing="0" >
+  <!--DWLayoutTable-->
+  <tr align="right">
+    <td width="100%" height="257" align="center" valign="middle"><img src="images/text1.jpg" width="328" height="101" /></td>
+    <td width="450" align="right"  valign="top"><img src="images/banner.jpg" width="450" height="257" /></td>
+  </tr>
+  <tr>
+    <td height="0"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td height="1"></td>
+    <td><img src="spacer.gif" alt="" width="450" height="1" /></td>
+  </tr>
+</table>
+
+
+<table width="100%"  border="0" cellspacing="0" cellpadding="0" height="608">
+  <tr>
+    <td width="11%" height="589" valign="top" class="style1"><strong>Agent :</strong><br />
+      [TF_AGENT]<br />
+      <strong>Exten:</strong><br />
+[TF_EXT]</td>
+    <td width="67%" valign="top">&nbsp;
+      &nbsp;
+      <table width="459" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td class="style13">Customer Type </td>
+          <td class="style4">&nbsp;</td>
+          <td class="style15">[TF_Type]</td>
+        </tr>
+        <tr>
+          <td width="190" class="style13">Customer Details </td>
+          <td width="43" class="style4">&nbsp;</td>
+          <td width="226" class="style4">&nbsp;</td>
+        </tr>
+        <tr>
+          <td class="style4"><div align="right"><strong>Name</strong></div></td>
+          <td class="style4"><div align="right"></div></td>
+          <td class="style4"><div align="left">[TF_Name]</div></td>
+        </tr>
+        <tr>
+          <td class="style4"><div align="right"><strong>Company</strong></div></td>
+          <td class="style4"><div align="right"></div></td>
+          <td class="style4"><div align="left">[TF_Company]</div></td>
+        </tr>
+        <tr>
+          <td class="style4"><div align="right"><strong>Address</strong></div></td>
+          <td class="style4"><div align="right"></div></td>
+          <td class="style4"><div align="left">[TF_Address]</div></td>
+        </tr>
+        <tr>
+          <td class="style4"><div align="right"><strong>Phone</strong></div></td>
+          <td class="style4"><div align="right"></div></td>
+          <td class="style4"><div align="left">[TF_Phone]</div></td>
+        </tr>
+        <tr>
+          <td class="style4"><div align="right"><strong>Cell</strong></div></td>
+          <td class="style4"><div align="right"></div></td>
+          <td class="style4"><div align="left">[TF_Cell]</div></td>
+        </tr>
+        <tr>
+          <td class="style4"><div align="right"><strong>Fax</strong></div></td>
+          <td class="style4"><div align="right"></div></td>
+          <td class="style4"><div align="left">[TF_Fax]</div></td>
+        </tr>
+        <tr>
+          <td class="style4"><div align="right"><strong>Email</strong></div></td>
+          <td class="style4"><div align="right"></div></td>
+          <td class="style4"><div align="left">[TF_Email]</div></td>
+        </tr>
+        <tr>
+          <td class="style4"><div align="right"><strong>Account Number </strong></div></td>
+          <td class="style4"><div align="right"></div></td>
+          <td class="style4"><div align="left">[TF_Accno]
+            <input type="hidden" name="accno" value="[TF_Accno]" />
+          </div></td>
+        </tr>
+        <tr>
+          <td class="style4"><div align="right"><strong>Identification</strong></div></td>
+          <td class="style4"><div align="right"></div></td>
+          <td class="style4"><div align="left">[TF_Identification]</div></td>
+        </tr>
+        <tr>
+          <td class="style4"><div align="right"><strong>Balance</strong></div></td>
+          <td class="style4"><div align="right"></div></td>
+          <td class="style4"><div align="left">[TF_Balance]</div></td>
+        </tr>
+        <tr>
+          <td class="style4">&nbsp;</td>
+          <td class="style4">&nbsp;</td>
+          <td class="style4">&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="3" class="style16"><div align="center">[TF_NewComplain]</div></td>
+        </tr>
+        <tr>
+          <td colspan="3" class="style4">&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="3" class="style4"><span class="style16">Not Resolved </span></td>
+        </tr>
+        <tr>
+          <td colspan="3" class="style16"><table width="787" border="1" cellpadding="0" cellspacing="0">
+              <tr>
+                <td width="35" bgcolor="#DBF0DF" class="style4">S No </td>
+                <td width="84" bgcolor="#DBF0DF" class="style4">Complain Code </td>
+                <td width="84" bgcolor="#DBF0DF" class="style4"><span class="style14">Heading</span></td>
+                <td width="124" bgcolor="#DBF0DF" class="style4"><span class="style14">Description</span></td>
+                <td width="65" bgcolor="#DBF0DF" class="style4"><span class="style14">Admin</span></td>
+                <td width="102" bgcolor="#DBF0DF" class="style4"><span class="style14">Date Of Action </span></td>
+                <td width="91" bgcolor="#DBF0DF" class="style4">Status</td>
+                <td width="91" bgcolor="#DBF0DF" class="style4">Resolved Status </td>
+                <td width="91" bgcolor="#DBF0DF" class="style4">Action</td>
+              </tr>
+            [TF_DATA]
+          </table></td>
+        </tr>
+        <tr>
+          <td colspan="3" class="style4">&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="3" class="style4"><table width="787" border="1" cellpadding="0" cellspacing="0">
+              <tr>
+                <td colspan="9" bgcolor="#FFFFFF" class="style4"><span class="style16">Resolved</span></td>
+              </tr>
+              <tr>
+                <td width="35" bgcolor="#DBF0DF" class="style4">S No </td>
+                <td width="84" bgcolor="#DBF0DF" class="style4">Complain Code </td>
+                <td width="84" bgcolor="#DBF0DF" class="style4"><span class="style14">Heading</span></td>
+                <td width="124" bgcolor="#DBF0DF" class="style4"><span class="style14">Description</span></td>
+                <td width="65" bgcolor="#DBF0DF" class="style4"><span class="style14">Admin</span></td>
+                <td width="102" bgcolor="#DBF0DF" class="style4"><span class="style14">Date Of Action </span></td>
+                <td width="91" bgcolor="#DBF0DF" class="style4">Status</td>
+                <td width="91" bgcolor="#DBF0DF" class="style4">Resolved Status </td>
+                <td width="91" bgcolor="#DBF0DF" class="style4">Action</td>
+              </tr>
+              <tr>
+                <td colspan="9" bgcolor="#FFFFFF" class="style4">&nbsp;</td>
+              </tr>
+            [TF_DATA1]
+          </table></td>
+        </tr>
+      </table>
+    <div align="center" id="mydiv"></div></td>
+    <td width="22%" valign="top"><span>
+	<img src="images/menu.jpg" width="224" height="247" border="0" usemap="#Map2" />
+    </span>    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top">&nbsp;</td>
+    <td valign="top">&nbsp;</td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <!--DWLayoutTable-->
+
+  <tr>
+    <td width="643" height="96" background="images/lower.jpg">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>
+
+<map name="Map" id="Map">
+  <area shape="rect" coords="29,12,235,41" href="#" />
+</map>
+
+<map name="Map2" id="Map2"><area shape="rect" coords="6,53,222,81" href="Home.php" />
+<area shape="rect" coords="7,84,224,107" href="Home.php?act=0" />
+<area shape="rect" coords="9,113,218,135" href="Search.php" />
+<area shape="rect" coords="5,142,222,167" href="AddCustomer.php" />
+<area shape="rect" coords="11,171,222,193" href="ViewReminder.php" />
+<area shape="rect" coords="10,199,222,226" href="SignOut.php" />
+</map></body>
+</html>

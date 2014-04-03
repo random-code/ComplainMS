@@ -1,0 +1,548 @@
+<?php
+require_once("_constants.php");
+include("Authorize.php");
+require_once("General.php");
+
+$id = $_REQUEST['id'];
+$ffcompid = $_REQUEST['id'];
+$err = $_REQUEST['err'];
+
+$text = $_REQUEST['text'];
+$compnature = $_REQUEST['compnature'];
+$status = $_REQUEST['status'];
+$ccompid = $_REQUEST['ccompid'];
+
+
+$ffacco = $_REQUEST['acco'];
+$ffname = $_REQUEST['name'];
+
+
+$item1    							=$_REQUEST['item1'];
+$qty1    							=$_REQUEST['qty1'];
+
+$item2    							=$_REQUEST['item2'];
+$qty2    							=$_REQUEST['qty2'];
+
+$item3    							=$_REQUEST['item3'];
+$qty3    							=$_REQUEST['qty3'];
+$st    							=$_REQUEST['st'];
+if($ccompid =="")
+{
+$ccompid=$id;
+}
+
+#print "\$ccompid:$ccompid | \$text:$text";
+#exit;
+
+if( ($ccompid !="") && ($text!=""))
+{
+
+$strSQL		= "
+
+insert into tblcomplainthread
+	( descr, dateofact, compid,agent)
+	values
+	( '$text', sysdate(), $ccompid,'".GetAdminID("$UID")."')
+
+";
+
+$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+
+$strSQL		= "
+
+update tblcomplain
+set status=$status,
+acc='$ffacco',
+name='$ffname',
+text ='$text',
+street=\"$st\"
+
+where compid=$ccompid
+";
+
+$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+
+$CallCode = GetAgentCallRecCode(GetAgentCode($UID));
+
+if(is_numeric($CallCode))
+{
+$strSQL="
+update tblagent_call set complainid=$ccompid,enable=1
+where id=$CallCode";
+mysql_query("$strSQL")  or die ("Error: ". mysql_error());;
+}
+
+
+$AUID=GetAdminID("$UID");
+$compid=$ccompid;
+if(($item1 >0) && ($qty1 !=""))
+{
+
+
+	$strSQL		= "
+	select * from  tblitems
+	where id=$item1
+	and
+	(qty-hold) >=$qty1
+	
+	";
+	print "\$strSQL : $strSQL<br>";
+	$QueryResult1	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+#$myRow1		= mysql_fetch_array($QueryResult1)	
+
+		if ($myRow1		= mysql_fetch_array($QueryResult1)){
+
+
+
+$strSQL		= "
+
+
+insert into `tblitemtrans` 
+	( itemcode, dateofact, action, user, remarks, complaincode,qty)
+	values
+	( '$item1', sysdate(), 'OUT', '$AUID', '$text', '$compid',$qty1)
+";
+
+
+#print $strSQL;
+
+$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+
+
+$strSQL		= "
+
+
+update tblitems
+set qty=qty-$qty1
+where id=$item1
+";
+
+$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+}
+
+}
+
+
+
+
+
+
+if(($item2 >0) && ($qty2 !=""))
+{
+
+
+
+	$strSQL		= "
+	select * from  tblitems
+	where id=$item2
+	and
+	(qty-hold) >=$qty2
+	
+	";
+//	print "\$strSQL : $strSQL<br>";
+	$QueryResult1	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+#$myRow1		= mysql_fetch_array($QueryResult1)	
+
+		if ($myRow1		= mysql_fetch_array($QueryResult1)){
+
+
+
+
+
+
+$strSQL		= "
+
+
+insert into `tblitemtrans` 
+	( itemcode, dateofact, action, user, remarks, complaincode,qty)
+	values
+	( '$item2', sysdate(), 'OUT', '$AUID', '$text', '$compid',$qty2)
+";
+
+
+#print $strSQL;
+
+$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+
+
+$strSQL		= "
+
+
+update tblitems
+set qty=qty-$qty2
+where id=$item1
+";
+
+
+#print "Operation successful , please wait";
+
+$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+
+
+}	
+}
+
+
+if(($item3 >0) && ($qty3 !=""))
+{
+
+	$strSQL		= "
+	select * from  tblitems
+	where id=$item3
+	and
+	(qty-hold) >=$qty3
+	
+	";
+//	print "\$strSQL : $strSQL<br>";
+	$QueryResult1	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+#$myRow1		= mysql_fetch_array($QueryResult1)	
+
+		if ($myRow1		= mysql_fetch_array($QueryResult1)){
+
+
+
+$strSQL		= "
+
+
+insert into `tblitemtrans` 
+	( itemcode, dateofact, action, user, remarks, complaincode,qty)
+	values
+	( '$item3', sysdate(), 'OUT', '$AUID', '$text', '$compid',$qty3)
+";
+
+
+#print $strSQL;
+
+$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+
+
+$strSQL		= "
+
+
+update tblitems
+set qty=qty-$qty3
+where id=$item1
+";
+
+
+#print "Operation successful , please wait";
+
+$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+
+}	
+}
+#print "Operation successful , please wait";
+
+
+print "Complain is updated successfully";
+	
+	print "<META HTTP-EQUIV=Refresh CONTENT='0; URL={$constant['relpath']}/complainthread.php?id=$ffcompid'> ";
+	exit;	
+}
+
+require_once ("{$constant['class_path']}/islayout.php");
+$lay = new IS_Layout("{$constant['temple_path']}/complainthread.htm");
+$lay->replace('TF_LeftNav',$constant['LeftNavigation']);
+$lay->replace('TF_IMAGE_PATH',$constant['images_path']);
+$lay->replace('TF_TEMP_PATH',$constant['temple_path']);
+
+$lay->replace('TF_header',$constant['header']);
+
+
+$lay->replace('TF_AdminName',GetAdminName($AUID));
+$lay->replace('TF_EXT',"$UID");
+$lay->replace('TF_AGENT',GetAdminID("$UID"));
+$lay->replace('TF_ERR',"");
+$lay->replace('TF_MSG',$err);
+$TEMP=parseCurrentDate1("");
+$lay->replace('TF_Date',$TEMP);
+
+$strSQL		= "
+
+select * from tblcomplain where compid=$id
+";
+
+
+#print $strSQL;
+
+$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+$myRow=mysql_fetch_array($QueryResult);
+ $dte=$myRow['dte'];
+ $acc=$myRow['acc'];
+ $phn=$myRow['phn'];
+ $name=$myRow['name'];
+ $compnature=$myRow['compnature'];
+ $text=$myRow['text'];
+ $status=$myRow['status'];
+ $compid=$myRow['compid'];
+ $agent=$myRow['agent'];
+ $street=$myRow['street'];
+ $emp1=$myRow['employee1'];
+ $emp2=$myRow['employee2'];
+ $disivion=$myRow['division'];
+	
+$strSQL		= "
+
+select * from tblcomplaintype where id='$compnature'
+";
+
+
+#print $strSQL;
+
+$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+$myRow=mysql_fetch_array($QueryResult);
+
+$complaintype=$myRow['complaintype'];
+
+$lay->replace('TF_ComplainNature',$complaintype."<input type=hidden name=ccompid value=$ffcompid>");
+$cstatus="Pending";
+if($status)
+{
+	$cstatus="Solved";
+}
+
+$lay->replace('TF_DIV',$disivion);
+$lay->replace('TF_Date',$dte);
+$lay->replace('TF_Acc',$acc);
+$lay->replace('TF_Phn',$phn);
+$lay->replace('TF_Name',$name);
+$lay->replace('TF_text',$text);
+$lay->replace('TF_CStatus',$cstatus);
+$lay->replace('TF_ComplainNo',$compid);
+$lay->replace('TF_ComplainNature',$agent);
+
+
+$strSQL		= "
+
+select * from tblcomplaintype
+";
+
+
+#print $strSQL;
+
+$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+
+$str="<select name=compnature>";
+while($myRow=mysql_fetch_array($QueryResult))
+{
+#print $cnt;
+$cnt++;
+$id=$myRow['id'];
+$heading=$myRow['complaintype'];
+if($id==$compnature)
+{
+	$str.="<option value=$id selected>$heading</option>";
+}
+else
+$str.="<option value=$id>$heading</option>";
+}
+
+$str.="</select>";
+
+$lay->replace('TF_ComplainNature1',$str);
+
+$strSQL		= "
+select * from tblcomplainthread where compid='$ffcompid'
+";
+#print $strSQL;
+$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+
+#print "$strSQL";
+print "s";
+$str="";
+while($myRow=mysql_fetch_array($QueryResult))
+{
+		$text=$myRow['descr'];
+		$dte=$myRow['dateofact'];
+		$id=$myRow['id'];
+		$agent=$myRow['agent'];
+$str.="
+          <tr>
+            <td><color=blue>$id</color></td>
+            <td><color=blue>$dte</color></td>
+           <td><color=blue>$agent</color></td> 
+            <td><color=blue>$text</color></td>
+            
+          </tr>
+
+";	
+}
+
+
+$lay->replace('TF_TABLE',$str);
+
+
+$strSQL		= "
+select * from tbldocs where compid='$ffcompid'
+order by id
+";
+#print $strSQL;
+$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+
+$str="";
+while($myRow=mysql_fetch_array($QueryResult))
+{
+		$text=$myRow['name'];
+		#print $text;
+$str.="
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><a href=upload/$text>$text</a></td>
+          </tr>
+
+";	
+
+}
+#print "$str:$str";
+$lay->replace('TF_DOC_TABLE',$str);
+
+$lay->replace('TF_ComplainPrev',"<a href=complainmain1.php>Search Complains</a>");
+$lay->replace('TF_PHONE',$callerid);
+
+
+
+if(1==1)
+{
+$strSQL = "select complaincode,b.itemdesc,a.dateofact,action,user,remarks,a.qty,itemcode from tblitemtrans a, tblitems b where b.id=itemcode  and
+complaincode='$compid'
+";
+
+#$compnature
+
+#print "\$strSQL:$strSQL";
+
+
+$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+
+$str="";
+$sno=0;
+while($myRow=mysql_fetch_array($QueryResult))
+{
+	$itemdesc=$myRow['itemdesc'];
+	$dateofact=$myRow['dateofact'];
+	$action=$myRow['action'];
+	$user=$myRow['user'];
+	$remarks=$myRow['remarks'];
+	$qty=$myRow['qty'];
+	$complaincode=$myRow['complaincode'];
+	if($complaincode==0) $complaincode="";
+	
+	$bgcolor="bgcolor=#99FF66";
+	if($action =="OUT")
+	$bgcolor="bgcolor=#FDC1D3";
+	
+	
+	
+		$sno++;
+$str.="
+          <tr $bgcolor>
+          <td><span class=\"style14\">$sno</span></td>
+            <td><span class=\"style14\">$itemdesc</span></td>
+            <td><span class=\"style14\">$dateofact</span></td>
+            <td><span class=\"style14\">$qty</span></td>
+            <td><span class=\"style14\">$action</span></td>
+            <td><span class=\"style14\">$user</span></td>
+            <td><span class=\"style14\">$remarks</span></td>
+       
+          </tr>
+
+";	
+
+
+}
+
+}
+$lay->replace('TF_TABLEINV',$str);
+
+#print $select;
+#exit;
+//my code
+$strSQL		= "
+
+select * from tblitems
+";
+
+
+#print $strSQL;
+
+$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+
+
+$str="<option value=0>None</option>";
+while($myRow=mysql_fetch_array($QueryResult))
+{
+	
+#print $cnt;
+$cnt++;
+$id=$myRow['id'];
+$itemdesc=$myRow['itemdesc'];
+$qty=$myRow['qty'];
+$hold=$myRow['hold'];
+
+$str.="<option value=$id>$itemdesc-($qty)[HOLD:$hold]</option>";
+}
+
+
+$str1="<select name=item1>$str";
+$str1.="</select>";
+
+$str2="<select name=item2>$str";
+$str2.="</select>";
+
+$str3="<select name=item3>$str";
+$str3.="</select>";
+
+
+$lay->replace('TF_ITEM1',$str1);
+$lay->replace('TF_ITEM2',$str2);
+$lay->replace('TF_ITEM3',$str3);
+
+
+$lay->replace('TF_EMP1',GetEmployeeName($emp1));
+$lay->replace('TF_EMP2',GetEmployeeName($emp2));
+$lay->replace('TF_ACCOM2',$street);
+
+
+
+$lay->display();
+
+exit;	
+
+
+function parseCurrentDate1($Pdate)
+ {
+		//$r = Db->ExecuteQuery("select curdate()");
+		$r[0]=$Pdate;
+		if($Pdate=="")
+		{
+		$r = mysql_query("select sysdate() a");
+		$r = mysql_fetch_array($r);
+		$r= $r['a'];
+		}
+		
+				 		
+   	return $r."<input type=hidden name=dte value='$r'>";
+ }
+ 
+function getNewCompid()
+{
+	
+	$r = mysql_query("select max(compid) a from tblnewcomplainnum");
+	$r = mysql_fetch_array($r);
+	$r= $r['a'];
+	
+	if($r == "")
+	{
+		$r=1;
+	
+	}
+	else
+	{
+		$r=$r+1;
+	}
+		
+ mysql_query("update  tblnewcomplainnum set compid=$r")  or die ("Error: ". mysql_error());;
+return $r;
+} 	
+?>	

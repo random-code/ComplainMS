@@ -1,0 +1,77 @@
+<?php
+
+Header('Cache-Control: no-cache');
+Header('Pragma: no-cache');      
+
+require_once("_constants.php");
+include("Authorize.php");
+require_once("_Db.php");
+
+	$ffdorefresh		= $_POST['dorefresh'];
+	
+$strSQL		= "
+select * from tblagent where exten='$UID'";
+
+#print $strSQL;
+$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+$myRow		= mysql_fetch_array($QueryResult);	
+$agentactive= $myRow['agentactive'];	
+#print "$agentactive <br>";
+#exit;
+$CanRefresh=$agentactive;
+if($agentactive==2)
+$CanRefresh=0;
+$Agentcode=$myRow['agentcode'];	;
+#print "if( ($CanRefresh) && ($agentactive!=2) )";
+if( ($CanRefresh) && ($agentactive!=2) )
+{
+	print "Waiting for call...";
+}
+else
+{
+$strSQL		= "
+
+select a.* from tblincomingcalls a 
+where agentid='$Agentcode'
+order by callarrivaltime desc limit 0,1
+
+";
+#print $strSQL;
+$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+$myRow		= mysql_fetch_array($QueryResult);	
+
+$callerid=$myRow['callerid'];
+$mainmanu=$myRow['mainmanu'];
+$complainmanu=$myRow['complainmanu'];
+$wants=" and he wants to talk to operator<br>Best Action : Chose option from right menu";
+
+if($mainmanu==1)
+{
+$complaintype="";
+#print $strSQL;
+$strSQL		= "select * from tblcomplaintype";
+
+$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+$myRow		= mysql_fetch_array($QueryResult);	
+
+
+
+$complaintype=$myRow['complaintype'];
+$wants=" and he wants to complain in " . $complaintype . "<br>Best Action : <a href=newcomplain.php?complainmanu=$complainmanu&callerid=$callerid>Register Complain</a>";
+}
+elseif($mainmanu==2)
+{
+$wants=" and he wants to get feedback from existing complain" . "<br>Best Action : <a href=complainmain1.php?clid=$callerid>Search Complain</a>";;
+}
+
+
+print "<Table>";
+
+print "<Tr>";
+print "<Td>Call coming from...$callerid<br>$wants</td>";
+print "</Tr>";
+print "</Table>";
+}
+
+
+?>	

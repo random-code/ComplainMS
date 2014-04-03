@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>MES</title>
+<style type="text/css">
+<!--
+.header {
+	background-image: url(images/header_bg.jpg);
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.style1 {
+	color: #0000FF;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 12px;
+}
+-->
+</style>
+<script type="text/javascript" src="/cms/classes/prototype.js"></script>
+<script>
+			function sendRequest_form_ajax() {				
+				new Ajax.Request("ajax_fetch_customer_id_or_name.php", 
+					{ 
+					method: 'post', 
+					postBody: 'txt_value='+ '13',
+					onComplete: showResponse 
+					});
+				}
+								
+			function showResponse(req){
+				var currentTime = new Date();
+
+				$('show').innerHTML= req.responseText;
+			}
+setInterval("sendRequest_form_ajax()",3000);
+</script>
+
+</head>
+<body>
+<table  width="100%" class="header" border="0" cellpadding="0" cellspacing="0" >
+  <!--DWLayoutTable-->
+  
+  
+    <td></td>
+  </tr>
+  
+    <td height="1"><img src="spacer.gif" alt="" width="450" height="1" /></td>
+  </tr>
+</table>
+
+
+<table width="100%"  border="0" cellspacing="0" cellpadding="0" height="653">
+  
+    <td height="26" colspan="3" valign="top" class="style1"><img src="images/mes.jpg" width="1024" height="194" /></td>
+  </tr>
+  
+    <td width="11%" height="589" valign="top" class="style1"><strong>Agent :</strong><br />
+      [TF_AGENT]<br />
+      <strong>Exten:</strong><br />
+[TF_EXT]</td>
+    <td width="67%" valign="top">&nbsp;
+      &nbsp;
+        <div align="center"></div>
+    <div align="center" id="mydiv"> 
+      <p><strong>READY FOR CALL.</strong><br />
+	  <form name ='form_ajax' id ='form_ajax' onsubmit='return false;'>
+	  
+    
+  		<div id='show'></div>
+</form>
+  </div>
+      </p>
+      <p>      <br />
+      </p>
+    </div></td>
+    <td width="22%" valign="top"><table width="200" border="1" align="center">
+      
+        <td><div align="center"><a href="Home.php?act=1">Be Ready For Call</a> </div></td>
+        </tr>
+      
+        <td><div align="center"><a href="complainmain1.php">Complain Search</a> </div></td>
+        </tr>
+      
+        <td><div align="center"><a href="newcomplain.php">Register New Complain </a></div></td>
+        </tr>
+      
+        <td><div align="center"><a href="SignOut.php">Sign Out</a></div></td>
+      </tr>
+    </table></td>
+  </tr>
+  
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  
+    <td valign="top">&nbsp;</td>
+    <td valign="top">&nbsp;</td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <!--DWLayoutTable-->
+  
+    <td width="643" height="96" background="images/lower.jpg">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>
+
+<map name="Map" id="Map">
+  <area shape="rect" coords="29,12,235,41" href="#" />
+</map>
+</body>
+</html>

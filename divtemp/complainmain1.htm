@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>:: CMS :: by Alisons Technology</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/cufon-yui.js"></script>
+<script type="text/javascript" src="js/arial.js"></script>
+<script type="text/javascript" src="js/cuf_run.js"></script>
+<script type="text/javascript" src="js/radius.js"></script>
+
+<script language=javascript>
+function openWindow(url, wname, width, height) {
+
+window.open(url, wname, "height=" + height + ",width=" + width + "location = 0, status = 1, resizable = 0, scrollbars=1, toolbar = 0");
+
+return true;
+
+}
+
+</script>
+
+</head>
+<body>
+<div class="main">
+  <div class="header">
+    <div class="header_resize">
+      <div class="logo"> <img src="images/logo_img.gif" alt="" width="51" height="48" />
+        <h1>CMS<small>Complaint Management System </small></h1>
+      </div>
+      <div class="clr"></div>
+      <div class="menu_nav">
+      
+        <div class="search"><img src="images/userpic.gif" width="40" height="40" /><strong>Division</strong></div>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="clr"></div>
+  <div class="content">
+    <div class="content_resize">
+      <div class="mainbar">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          
+            <td><form id="form1" name="form1" method="post" action="">
+        <table width="100%" border="0">
+          <tr class="tableheaders2">
+            <td colspan="3"><span>Search</span></td>
+          </tr>
+          
+            <td><div><a href="complainmain1print.php?[param]">Print</a> </div></td>
+            <td><span></span></td>
+            <td><span></span></td>
+          </tr>
+          
+            <td><div><span>Include Date in Search </span></div></td>
+            <td><span></span></td>
+            <td><span>
+              <label>
+              <input name="dte" type="checkbox" id="dte" value="checkbox" />
+              </label>
+            </span></td>
+          </tr>
+          
+            <td><div ><span>From</span></div></td>
+            <td><span></span></td>
+            <td><span>[TF_From]</span></td>
+          </tr>
+          
+            <td><div ><span>To</span></div></td>
+            <td><span></span></td>
+            <td><span>[TF_To]</span></td>
+          </tr>
+          
+            <td><div><span>Get Summary Report </span></div></td>
+            <td>&nbsp;</td>
+            <td><input name="summary" type="checkbox" id="summary" value="1" /></td>
+          </tr>
+          
+            <td><div ><span>Search Key </span></div></td>
+            <td><span></span></td>
+            <td><span>
+              <label>
+              <input name="key" type="text" id="key" />
+              </label>
+            </span></td>
+          </tr>
+          
+            <td><div ><span>Status </span></div></td>
+            <td><span></span></td>
+            <td><span>
+              <label>
+              <select name="status" id="status">
+                <option value="0,1">Both</option>
+                <option value="1">Solved</option>
+                <option value="0">Pending</option>
+              </select>
+              </label>
+            </span></td>
+          </tr>
+          
+            <td><div><span>Division</span></div></td>
+            <td><span></span></td>
+            <td><span>
+              <label>[TF_ComplainNature]</label>
+            </span></td>
+          </tr>
+          
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><label>
+              <input type="submit" name="Submit" value="Search" />
+<br>
+[TF_PrintGraph]            
+            </label></td>
+          </tr>
+        </table>
+        <table width="100%" border="0">
+          <tr class="tableheaders">
+            <td width="110" align="center"><span>Complain No. </span></td>
+            <td width="95" align="center"><span>Date</span></td>
+            <td width="96" align="center"><span>Name</span></td>
+            <td width="96" align="center"><span>House</span></td>
+            <td width="96" align="center"><span>text</span></td>
+            <td width="301" align="center" ><span>Status</span></td>
+          </tr>
+[TF_TABLE]          
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+        </table>
+     
+      </form></td>
+          </tr>
+        </table>
+      </div>
+      <div class="sidebar">
+        <div class="gadget">
+          <h2 class="star"> Menu</h2>
+          <div class="clr">
+            <table width="100%" border="0" align="center" cellpadding="3" cellspacing="3">
+              
+                <td height="37" align="center"><a href="complainmain1.php"><img src="images/complains.jpg" width="173" height="37" border="0" /></a></td>
+              </tr>
+              
+                <td height="37" align="center"><a href="InvMain.php"><img src="images/inventory.jpg" width="173" height="37" border="0" /></a></td>
+              </tr>
+              
+                <td height="37" align="center"><a href="InvMain2.php"><img src="images/Inventory Summary.jpg" width="173" height="37" border="0" /></a></td>
+              </tr>
+              
+                <td height="37" align="center"><a href="SignOut.php"></a><a href="PhoneBook.php"><img src="images/Phone Book Info.jpg" width="173" height="37" border="0" /></a></td>
+              </tr>
+              
+                <td height="37" align="center"><a href="Employees.php"><img src="images/employees.jpg" width="173" height="37" border="0" /></a></td>
+              </tr>
+              
+                <td height="37" align="center"><a href="SignOut.php"><img src="images/signout.jpg" alt="" width="173" height="37" border="0" /></a></td>
+              </tr>
+            </table>
+          </div>
+</div>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="fbg">
+    <div class="fbg_resize"></div>
+    <div class="footer">
+      <p class="lf">Designed by <a href="#">Alisons Technology</a></p>
+      <div class="clr"></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

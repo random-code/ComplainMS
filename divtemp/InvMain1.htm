@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>MES</title>
+<style type="text/css">
+<!--
+.header {
+	background-image: url(images/header_bg.jpg);
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.style1 {
+	color: #0000FF;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 12px;
+}
+.style14 {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: x-small; }
+.style15 {font-size: x-small}
+.style17 {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: x-small; font-weight: bold; }
+.style20 {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: x-small; font-weight: bold; color: #FFFFFF; }
+-->
+</style>
+</head>
+<body >
+<table  width="100%" class="header" border="0" cellpadding="0" cellspacing="0" >
+  <!--DWLayoutTable-->
+  
+  
+    <td width="100%" height="0"></td>
+    <td></td>
+  </tr>
+  
+    <td height="1"></td>
+    <td><img src="spacer.gif" alt="" width="450" height="1" /></td>
+  </tr>
+</table>
+
+
+<table width="128%"  border="0" cellspacing="0" cellpadding="0" height="646">
+  
+    <td height="19" colspan="3" valign="top" class="style1"><img src="images/mes.jpg" width="1024" height="194" /></td>
+  </tr>
+  
+    <td width="11%" height="589" valign="top" class="style1"><strong>Admin Panel </strong><br />
+      <table width="174" border="1" align="center">
+        
+          <td width="164"><div align="center"><a href="complainmain1.php">Complains</a></div></td>
+        </tr>
+        
+          <td><div align="center"><a href="InvMain.php">Inventory</a></div></td>
+        </tr>
+        
+          <td><div align="center"><a href="InvMain2.php">Inventory Summary </a></div></td>
+        </tr>
+        
+          <td><div align="center"><a href="SignOut.php">Sign Out</a></div></td>
+        </tr>
+      </table></td>
+    <td width="67%" valign="top">&nbsp;
+      &nbsp;
+      <form id="form1" name="form1" method="post" action="">
+        <table width="790" border="0">
+          
+            <td colspan="3"><span class="style17">Search</span></td>
+          </tr>
+          
+            <td><div align="right"><a href="complainmain1print.php?[param]"></a> Add Inventory </div></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          
+            <td><div align="right">Item</div></td>
+            <td>&nbsp;</td>
+            <td>[TF_ITEM]
+            <input name="newitem" type="text" id="newitem" size="30" />
+            <input type="submit" name="Submit2" value="Add New" /></td>
+          </tr>
+          
+            <td><div align="right">Quantity</div></td>
+            <td>&nbsp;</td>
+            <td><label>
+              <input name="qty" type="text" id="qty" size="10" />
+            </label></td>
+          </tr>
+          
+            <td><div align="right">Remarks</div></td>
+            <td>&nbsp;</td>
+            <td><label>
+              <textarea name="rem" cols="60" id="rem"></textarea>
+            </label></td>
+          </tr>
+          
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><input type="submit" name="Submit3" value="Add" /></td>
+          </tr>
+          
+            <td width="163"><div align="right"><a href="complainmain1print.php?[param]"></a> Report of Inventory </div></td>
+            <td width="1"><span class="style15"></span></td>
+            <td width="612"><span class="style15"></span></td>
+          </tr>
+          
+            <td><div align="right"><span class="style14">From</span></div></td>
+            <td><span class="style15"></span></td>
+            <td><span class="style15">[TF_From]</span></td>
+          </tr>
+          
+            <td><div align="right"><span class="style14">To</span></div></td>
+            <td><span class="style15"></span></td>
+            <td><span class="style15">[TF_To]</span></td>
+          </tr>
+          
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><label>
+              <input type="submit" name="Submit" value="Search" />
+            </label></td>
+          </tr>
+        </table>
+        <table width="559" border="0">
+          
+            <td width="68" bgcolor="#0000FF"><span class="style20">Serial No. </span></td>
+            <td width="84" bgcolor="#0000FF"><span class="style20">Item</span></td>
+            <td width="46" bgcolor="#0000FF"><span class="style20">Date</span></td>
+            <td width="55" bgcolor="#0000FF"><span class="style20">Quantity</span></td>
+            <td width="41" bgcolor="#0000FF"><span class="style20">Action</span></td>
+            <td width="30" bgcolor="#0000FF"><span class="style20">User</span></td>
+            <td width="102" bgcolor="#0000FF"><span class="style20">Remarks</span></td>
+            <td width="628" bgcolor="#0000FF"><span class="style20">Complain No. </span></td>
+          </tr>
+[TF_TABLE]          
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            </tr>
+        </table>
+        <p>&nbsp;</p>
+      </form>
+    <div align="center" id="mydiv"></div></td>
+    <td width="22%" valign="top">&nbsp;</td>
+  </tr>
+  
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  
+    <td valign="top">&nbsp;</td>
+    <td valign="top">&nbsp;</td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <!--DWLayoutTable-->
+
+  
+    <td width="643" height="96" background="images/lower.jpg">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>
+
+<map name="Map" id="Map">
+  <area shape="rect" coords="29,12,235,41" href="#" />
+</map>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<?php
+require_once("_constants.php");
+include("Authorize.php");
+require_once("General.php");
+
+$name		= $_POST['name'];
+require_once ("{$constant['class_path']}/islayout.php");
+
+
+$lay = new IS_Layout("{$constant['temple_path']}/Inventory.htm");
+if($name !="")
+{
+$make		= $_POST['make'];
+$model		= $_POST['model'];
+$vendor		= $_POST['vendor'];
+$typeid		= $_POST['typeid'];
+$sell		= $_POST['sell'];
+$descr		= $_POST['descr'];
+
+
+list($aa,$Type)=split('[.]',$_FILES['image']['name']);
+$IsImageUploaded=0;
+if($Type !="")
+$IsImageUploaded=1;
+
+$strSQL		= "
+
+insert into tblinventorytype 
+	( name, typeid, make, vendor, model,sellprice,description,isimageuploaded,imagetype)
+	values
+	( '$name', $typeid, '$make', '$vendor', '$model','$sell','$descr','$IsImageUploaded','$Type')
+
+";
+$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+
+
+$strSQL		= "
+
+select * from tblinventorytype 
+where  name='$name' and typeid=$typeid and make='$make'and
+vendor='$vendor' and model= '$model'
+
+";
+$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+
+$myRow=mysql_fetch_array($QueryResult);
+$TypeID=$myRow[id];
+
+#print_r($_FILES);
+#print "tttt:" .$_FILES['image']['name'];
+
+#print "<br>\$Type:$Type";
+#exit;
+if($Type !="")
+{
+		$uploaddir = 'images/';
+		$uploadfile = $uploaddir . basename("$TypeID.$Type");
+		if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {
+		#    echo "File is valid, and was successfully uploaded.\n";
+		}
+		else {
+		 #   print "Possible file upload attack!\n";
+		}
+		
+		#echo 'Here is some more debugging info:';
+		#print_r($_FILES);
+		
+		
+		#exit;
+}
+
+
+
+
+$lay->replace('TF_MSG',"Inventory Type Added Successfully");
+}
+
+
+
+$lay->replace('TF_LeftNav',$constant['LeftNavigation']);
+$lay->replace('TF_IMAGE_PATH',$constant['images_path']);
+$lay->replace('TF_TEMP_PATH',$constant['temple_path']);
+
+$lay->replace('TF_header',$constant['header']);
+$lay->replace('TF_lefttitle',"Reseller");
+$lay->replace('TF_LOGO',"<img border='0' src='img001.JPG' width='91' height='108'>");
+
+
+$lay->replace('TF_AdminName',GetAdminName($AUID));
+$lay->replace('TF_MSG',$err);
+
+
+	
+
+
+
+$strSQL		= "
+select id,typename from tblinventorytypetype";
+$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+$select="<select name=typeid>";
+while($myRow=mysql_fetch_array($QueryResult))
+{
+	$id							=$myRow['id'];		
+	$name							=$myRow['typename'];		
+	$select .= "<option value=$id>$name</option>\n";
+}
+
+$select.="</select>";
+$lay->replace('TF_INVTYPE',$select);
+
+
+$lay->display();
+
+exit;		
+?>	

@@ -1,0 +1,384 @@
+<?php
+require_once("_constants.php");
+include("Authorize.php");
+require_once("General.php");
+
+$line = $_REQUEST['line'];
+$accno = $_REQUEST['accno'];
+$compid = $_REQUEST['compid'];
+
+
+require_once ("{$constant['class_path']}/islayout.php");
+$lay = new IS_Layout("{$constant['temple_path']}/Fwdlinedetail.htm");
+$lay->replace('TF_LeftNav',$constant['LeftNavigation']);
+$lay->replace('TF_IMAGE_PATH',$constant['images_path']);
+$lay->replace('TF_TEMP_PATH',$constant['temple_path']);
+
+$lay->replace('TF_header',$constant['header']);
+$lay->replace('TF_lefttitle',"Metro");
+$lay->replace('TF_LOGO',"<img border='0' src='img001.JPG' width='91' height='108'>");
+
+
+$lay->replace('TF_AdminName',GetAdminName($AUID));
+$lay->replace('TF_MSG',$err);
+$TEMP=parseCurrentDate("");
+$lay->replace('TF_From',"<select name=fday>$TEMP[0]</select> - <select name=fmon>$TEMP[1]</select> - <select name=fyear>$TEMP[2]</select>");
+$lay->replace('TF_To',"<select name=tday>$TEMP[0]</select> - <select name=tmon>$TEMP[1]</select> - <select name=tyear>$TEMP[2]</select>");
+
+
+
+
+//my code
+$strSQL		= "select * from tblcustomer where accno=$accno";
+
+$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+$cnt=0;
+$tbl="";
+$qty=0;
+$myRow=mysql_fetch_array($QueryResult);
+	
+
+	$id							=$myRow['id'];		
+	$name							=$myRow['name'];		
+	$company							=$myRow['company'];		
+	$city			=$myRow['city'];		
+	
+	$currentbal_cents=$myRow['currentbal_cents'];		
+	$lname							=$myRow['lname'];		
+	$mname							=$myRow['mname'];		
+	$phone							=$myRow['phone'];		
+	$cell			=$myRow['cell'];		
+	$fax	=$myRow['fax'];		
+	$accno=$myRow['accno'];		
+
+	$email=$myRow['email'];		
+		$city=$myRow['city'];		
+			$street1=$myRow['street1'];		
+				$street2=$myRow['street2'];		
+
+		$state=$myRow['state'];		
+			$country=$myRow['country'];		
+				$zip=$myRow['zip'];		
+$identification=$myRow['identification'];		
+
+
+$nstreet1=$myRow['nstreet1'];		
+			$ncontact1=$myRow['ncontact1'];		
+				$nstreet2=$myRow['nstreet2'];		
+$ncontact2=$myRow['ncontact2'];		
+
+
+
+$str="";
+
+
+
+
+$lay->replace('TF_NA1',"$nstreet1");	
+$lay->replace('TF_NC1',"$ncontact1	");           
+$lay->replace('TF_NA2',"$nstreet2");
+$lay->replace('TF_NC2',"$ncontact2");
+
+
+
+
+$lay->replace('TF_LineCode',"$LineCode");
+
+$lay->replace('TF_Plan',"$planname");
+
+$lay->replace('TF_NumberofLines',"$line");
+
+$lay->replace('TF_Status',"$ActivateStatus - $LapseStatus");
+
+$lay->replace('TF_Complains',"$NoOfComplains");
+
+$lay->replace('TF_DueAmount',"$DueAmount");
+
+
+
+ #print "$str";
+ #exit;
+
+ 	
+
+#print "$name $mname	$lname";
+$strSQL		= "
+
+select * from tblcomplains where  accno=$accno and id=$compid
+";
+
+
+#print $strSQL;
+
+$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+$cnt=0;
+$tbl="";
+$qty=0;
+
+
+$str="";
+while($myRow=mysql_fetch_array($QueryResult))
+{
+#print $cnt;
+$cnt++;
+$id=$myRow['id'];
+$heading=$myRow['heading'];
+$description=$myRow['description'];
+$datofact=$myRow['dateofact'];		
+$isresolved=$myRow['isresolved'];
+$admin=$myRow['adminuid'];
+$status=$myRow['status'];		
+
+if($admin == "0")
+{
+	$admin="None";
+	}
+
+$resolveStatus="";
+
+if($isresolved)
+	{
+$resolveStatus="Resolved";	
+	}
+else
+	{
+$resolveStatus="Not Resolved";		
+	}
+
+
+
+
+$str.="
+			<tr class=\"style4\">
+							              <td>$cnt</td>		
+							              <td>$id</td>		
+			                      <td>$heading</td>
+                            <td>$description</td>
+                            <td>$admin</td>
+                            <td>$datofact</td>
+                             <td>$status</td>
+                             <td>$resolveStatus</td>
+														
+								</tr>
+	";
+ 
+
+}
+
+#print "\$str : $str";
+
+$lay->replace('TF_DATA',"$str<input type=hidden name=compid value=$compid><input type=hidden name=lineid value=$LineCode><input type=hidden name=accno value=$accno>");
+
+
+
+
+
+
+
+
+$strSQL		= "
+
+select * from tblcomplainthread where complainid=$compid 
+	order by dateofact
+";
+
+
+#print $strSQL;
+
+$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+$cnt=0;
+$tbl="";
+$qty=0;
+
+
+$str="";
+while($myRow=mysql_fetch_array($QueryResult))
+{
+#print $cnt;
+$cnt++;
+$id=$myRow['id'];
+$heading=$myRow['heading'];
+$description=$myRow['descr'];
+$datofact=$myRow['dateofact'];		
+$isresolved=$myRow['isresolved'];
+$admin=$myRow['admin'];
+$status=$myRow['status'];		
+if($admin == "0")
+{
+	$admin="None";
+	}
+
+
+
+
+$str.="
+			<tr class=\"style4\">
+							              <td>$cnt</td>		
+							              <td>$id</td>		
+			                      <td>$heading</td>
+                            <td>$description</td>
+                            <td>$admin</td>
+                            <td>$datofact</td>
+                             <td>$status</td>
+														
+								</tr>
+	";
+ 
+
+}
+
+
+$lay->replace('TF_DATA1',"$str");
+
+$lay->replace('TF_Name',"$name $mname	$lname");
+
+$lay->replace('TF_Company',"$company");
+
+$lay->replace('TF_Address',"$street1 stree2 , $city ,$state,$country,$zip");
+
+$lay->replace('TF_Phone',"$phone");
+
+$lay->replace('TF_Cell',"$cell");
+
+$lay->replace('TF_Fax',"$fax");
+
+$lay->replace('TF_Email',"$email");
+
+$lay->replace('TF_Accno',"$accno");
+
+$lay->replace('TF_Identification',"$identification");
+
+$lay->replace('TF_Balance'," N/A ");
+
+
+$lay->replace('TF_isresolved',"$isresolved");
+
+$lay->replace('TF_forwarded',"$forwarded");
+
+$strSQL		= "
+select uid,fname,lname from tbladmin";
+$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+$select = "<select name=admin>";
+while($myRow=mysql_fetch_array($QueryResult))
+{
+	$uid							=$myRow['uid'];		
+	$fname							=$myRow['fname'];		
+	$lname							=$myRow['lname'];
+	$select .= "<option value=$uid>$fname $lname</option>\n";
+}
+
+
+$strSQL		= "
+select agentname from tblsalesadmin";
+$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+while($myRow=mysql_fetch_array($QueryResult))
+{
+	$agentname							=$myRow['agentname'];		
+	$select .= "<option value=$agentname>$agentname</option>\n";
+}
+
+
+$select .= "</select>";
+
+#print $select;
+#exit;
+$lay->replace('TF_forwarded1',$select);
+
+$lay->display();
+
+exit;	
+
+
+function parseCurrentDate1($Pdate)
+ {
+		//$r = Db->ExecuteQuery("select curdate()");
+		$r[0]=$Pdate;
+		if($Pdate=="")
+		{
+		$r = mysql_query("select curdate()");
+		$r = mysql_fetch_array($r);
+		}
+		
+		
+		$DATE =split('-',$r[0]);
+		$dd =$DATE[2];
+		$mm =$DATE[1];
+		$yy =$DATE[0];
+		
+		
+		$TempMONTH=
+								"
+								<option value=01>Jan</option>
+      							<option value=02>Feb</option>
+      							<option value=03>Mar</option>
+      							<option value=04>Apr</option>
+      							<option value=05>May</option>
+      							<option value=06>Jun</option>
+      							<option value=07>Jul</option>
+      							<option value=08>Aug</option>
+      							<option value=09>Sep</option>
+      							<option value=10>Oct</option>
+      							<option value=11>Nov</option>
+      							<option value=12>Dec</option>
+								";
+		
+		$TempDAY="
+								<option value=01>01</option>
+								<option value=02>02</option>
+								<option value=03>03</option>
+								<option value=04>04</option>
+								<option value=05>05</option>
+								<option value=06>06</option>
+								<option value=07>07</option>
+								<option value=08>08</option>
+								<option value=09>09</option>
+								<option value=10>10</option>
+								<option value=11>11</option>
+								<option value=12>12</option>
+								<option value=13>13</option>
+								<option value=14>14</option>
+								<option value=15>15</option>
+								<option value=16>16</option>
+								<option value=17>17</option>
+								<option value=18>18</option>
+								<option value=19>19</option>
+								<option value=20>20</option>
+								<option value=21>21</option>
+								<option value=22>22</option>
+								<option value=23>23</option>
+								<option value=24>24</option>
+								<option value=25>25</option>
+								<option value=26>26</option>
+								<option value=27>27</option>
+								<option value=28>28</option>
+								<option value=29>29</option>
+								<option value=30>30</option>
+								<option value=31>31</option>
+							";
+		
+		#select replace('<option value=2005 [SP_YEARSEL01]>2005</option><option value=2006 [SP_YEARSEL02]>2006</option>','value=2005','selected value=2005') ;
+		
+		$TempYEAR=
+				   "
+				   			<option value=2004>2004</option>	
+		            <option value=2005>2005</option>
+		            <option value=2006>2006</option>						
+		            <option value=2007>2007</option>						
+		            <option value=2008>2008</option>						
+		            <option value=2009>2009</option>						
+		            <option value=2010>2010</option>						
+		            ";
+		 
+		$TempYEAR = str_replace("value=$yy","selected value=$yy",$TempYEAR);
+		 
+		$TempMONTH = str_replace("value=$mm","selected value=$mm",$TempMONTH);
+		 
+		$TempDAY = str_replace("value=$dd","selected value=$dd",$TempDAY);
+		
+	$TEMP[0]=	$TempDAY;
+	$TEMP[1]=	$TempMONTH;
+	$TEMP[2]= $TempYEAR; 
+				 		
+   	return $TEMP;
+ }	
+?>	

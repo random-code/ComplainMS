@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>:: CMS :: by Alisons Technology</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/cufon-yui.js"></script>
+<script type="text/javascript" src="js/arial.js"></script>
+<script type="text/javascript" src="js/cuf_run.js"></script>
+<script type="text/javascript" src="js/radius.js"></script>
+<style type="text/css">
+.style21 {font-size: medium}
+.style4 {font-size: x-small}
+.style6 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	text-align: left;
+	font-size: 14px;
+	color: #000;
+	font-weight: bold;
+}
+.style7 {	font-size: 14px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.style8 {	color: #FF0000;
+	font-weight: bold;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.style9 {font-size: x-small; font-family: Verdana, Arial, Helvetica, sans-serif; font-weight: bold; }
+.style1 {	color: #0000FF;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 12px;
+}
+.style20 {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: x-small; font-weight: bold; color: #FFFFFF; }
+</style>
+</head>
+<body>
+<div class="main">
+  <div class="header">
+    <div class="header_resize">
+      <div class="logo"> <img src="images/logo_img.gif" alt="" width="51" height="48" />
+        <h1>CMS<small>Complaint Management System </small></h1>
+      </div>
+      <div class="clr"></div>
+      <div class="menu_nav">
+      
+        <div class="search">
+          <img src="images/userpic.gif" width="40" height="40" />
+            Agent: [TF_AGENT] Extension :[TF_EXT]
+</div>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="clr"></div>
+  <div class="content">
+    <div class="content_resize">
+      <div class="mainbar">
+        <div class="article">    <form id="form1" name="form1" method="post" action="newcomplainact.php">
+          <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td colspan="3" class="style4 style8"><div align="center">[TF_ERR]</div></td>
+            </tr>
+            <tr>
+              <td width="190" class="style4"><div align="right" class="style5"><span class="style6">Date and Time </span></div></td>
+              <td width="43" class="style4"><div align="right"></div></td>
+              <td width="226" class="style4"><div align="left" class="style61"><span class="style6">[TF_Date]</span></div></td>
+            </tr>
+            <tr>
+              <td class="style4"><div align="right" class="style61"><span class="style6"><strong>Complain Number</strong></span></div></td>
+              <td class="style4"><div align="right"></div></td>
+              <td class="style4"><div align="left" class="style61"><span class="style6">[TF_ComplainNo]</span></div></td>
+            </tr>
+            <tr>
+              <td class="style4"><div align="right" class="style61"><span class="style6"><strong>Phone</strong></span></div></td>
+              <td class="style4"><div align="right"></div></td>
+              <td class="style4"><div align="left" class="style61">
+                <span class="style6">
+                <input name="phn" type="text" id="phn" value="[TF_PHONE]" />
+                <input type="submit" name="Submit2" value="Lookup" />
+                </span></div></td>
+            </tr>
+            <tr>
+              <td class="style4"><div align="right" class="style61"><span class="style6"><strong>Accomodation</strong></span></div></td>
+              <td class="style4"><div align="right"></div></td>
+              <td class="style4"><div align="left" class="style61">
+                <span class="style6">
+                <label>
+                  <input name="acc" type="text" id="acc" value="[TF_ACCOM]" size="30" />
+                  <br>St. <input name="st" type="text" id="st" value="[TF_ACCOM2]" size="20" />
+                </label>
+                </span></div></td>
+            </tr>
+            <tr>
+              <td class="style71"><div align="right"><span class="style6"><strong>Name</strong></span></div>
+                <div align="right"></div></td>
+              <td class="style4"><div align="right"></div></td>
+              <td class="style4"><div align="left" class="style61">
+                <span class="style6">
+                <input name="name" type="text" id="name" value="[TF_NAME]" />
+                </span></div></td>
+            </tr>
+
+
+            <tr>
+              <td class="style4"><div align="right" class="style61"><span class="style6"><strong>Complain Nature </strong></span></div></td>
+              <td class="style4"><div align="right"></div></td>
+              <td class="style4"><div align="left" class="style61"><span class="style6">[TF_ComplainNature]</span></div></td>
+            </tr>
+
+            <tr>
+              <td class="style4"><div align="right" class="style61"><span class="style6"><strong>Assign Employee(s)</strong></span></div></td>
+              <td></td>
+              <td><div align="left"><strong>[TF_EMP1]-[TF_EMP2] </strong></div></td>
+            </tr>
+
+            <tr>
+              <td class="style4"><div align="right" class="style61"><span class="style6"><strong>Division</strong></span></div></td>
+              <td></td>
+              <td><div align="left"><strong>[TF_EMP1]-[TF_EMP2] </strong></div></td>
+            </tr>
+
+
+
+            <tr>
+              <td class="style4"><div align="right" class="style61"><span class="style6"><strong>Previous Complain </strong></span></div></td>
+              <td class="style4"><div align="right"></div></td>
+              <td class="style4"><div align="left" class="style61"><span class="style6">[TF_ComplainPrev]</span></div></td>
+            </tr>
+            <tr>
+              <td class="style4"><div align="right" class="style61"><span class="style6"><strong>Text </strong></span></div></td>
+              <td class="style4"><div align="right"></div></td>
+              <td class="style4"><div align="left" class="style61">
+                <span class="style6">
+                <label>
+                  <textarea name="text" id="text"></textarea>
+                </label>
+                </span></div></td>
+            </tr>
+            <tr>
+              <td class="style4"><div align="right" class="style61"><span class="style6"><strong>Status </strong></span></div></td>
+              <td class="style4"><div align="right"></div></td>
+              <td class="style4"><div align="left" class="style61">
+                <span class="style6">
+                <label>
+                  <select name="status" id="status">
+                    <option value="0">Pending</option>
+                    <option value="1">Solved</option>
+                  </select>
+                </label>
+                </span></div></td>
+            </tr>
+            <tr>
+              <td class="style71">&nbsp;</td>
+              <td class="style71">&nbsp;</td>
+              <td class="style4">
+                <span class="style6">
+                <label>
+                  <input type="submit" name="Submit" value="Submit" />
+                </label>
+                </span></td>
+            </tr>
+            <tr>
+              <td class="style71">&nbsp;</td>
+              <td class="style71">&nbsp;</td>
+              <td class="style4">&nbsp;</td>
+            </tr>
+          </table></form></div>
+      </div>
+      <div class="sidebar">
+        <div class="gadget">
+          <h2 class="star"> Menu</h2>
+          <div class="clr">
+            <table width="100%" border="0" align="center" cellpadding="3" cellspacing="3">
+              <tr>
+                <td height="37" align="center"><a href="Home.php?act=1"><img src="images/bereadyforcall.jpg" width="173" height="37" border="0" /></a></td>
+              </tr>
+              <tr>
+                <td height="37" align="center"><a href="complainmain1.php"><img src="images/searchcomplaint.jpg" width="173" height="37" border="0" /></a></td>
+              </tr>
+              <tr>
+                <td height="37" align="center"><a href="newcomplain.php"><img src="images/Newcomplaint.jpg" width="173" height="37" border="0" /></a></td>
+              </tr>
+              <tr>
+                <td height="37" align="center"><a href="SignOut.php"><img src="images/signout.jpg" width="173" height="37" border="0" /></a></td>
+              </tr>
+            </table>
+          </div>
+</div>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="fbg">
+    <div class="fbg_resize">
+      <div class="clr"></div>
+    </div>
+    <div class="footer">
+      <p class="lf">Designed by <a href="#">Alisons Technology</a></p>
+      <div class="clr"><span class="content_resize"></span></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

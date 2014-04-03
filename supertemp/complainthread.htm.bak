@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>:: CMS :: by Alisons Technology</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/cufon-yui.js"></script>
+<script type="text/javascript" src="js/arial.js"></script>
+<script type="text/javascript" src="js/cuf_run.js"></script>
+<script type="text/javascript" src="js/radius.js"></script>
+
+</head>
+<body>
+<div class="main">
+  <div class="header">
+    <div class="header_resize">
+      <div class="logo"> <img src="images/logo_img.gif" alt="" width="51" height="48" />
+        <h1>CMS<small>Complaint Management System </small></h1>
+      </div>
+      <div class="clr"></div>
+      <div class="menu_nav">
+      
+        <div class="search">
+          <img src="images/userpic.gif" width="40" height="40" />
+           <strong> Agent: [TF_AGENT] Extension :[TF_EXT]</strong>
+</div>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="clr"></div>
+  <div class="content">
+    <div class="content_resize">
+      <div class="mainbar">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableheaders2">
+          <tr>
+            <td> 
+            <form id="form1" name="form1" method="post" action="">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td colspan="4" class="style8"><div align="center">[TF_ERR]</div></td>
+              </tr>
+              <tr>
+                <td width="67"><a href="complainprint.php?id=[TF_ComplainNo]" target="_blank"><img src="images/print.jpg" alt="print" width="44" height="38" /></a></td>
+				<td width="106"><div align="left"><a href="complainprint.php?id=[TF_ComplainNo]" target="_blank">Print</a></div></td>
+                
+                <td>&nbsp;</td>
+                <td >&nbsp;</td>
+              </tr>
+              <tr>
+                <td colspan="2"><div>Date and Time </div></td>
+                <td width="39"><div><span></span></div></td>
+                <td width="408"><div>[TF_Date]</div></td>
+              </tr>
+              <tr>
+                <td colspan="2"><div><strong>Complain Number</strong></div></td>
+                <td><div><span></span></div></td>
+                <td><div>[TF_ComplainNo]</div></td>
+              </tr>
+              <tr>
+                <td colspan="2"><div><strong>Accomodation</strong></div></td>
+                <td><div></div></td>
+                <td><label>
+                  <input name="acco" type="text" id="acco" value="[TF_Acc] " />
+                  <br>St. <input name="st" type="text" id="st" value="[TF_ACCOM2]" size="20" />
+                </label></td>
+              </tr>
+              <tr>
+                <td colspan="2"><div><strong>Phone</strong></div></td>
+                <td><div></div></td>
+                <td><div>[TF_Phn]</div></td>
+              </tr>
+              <tr>
+                <td colspan="2"><div><strong>Name</strong></div>
+                  <div></div></td>
+                <td><div></div></td>
+                <td><div>
+                  <label>
+                    <input name="name" type="text" id="name" value="[TF_Name]" />
+                  </label>
+                </div></td>
+              </tr>
+              <tr>
+                <td colspan="2"><div><strong>Complain Nature </strong></div></td>
+                <td><div></div></td>
+                <td><div>[TF_ComplainNature]</div></td>
+              </tr>
+
+              <tr>
+                <td colspan="2"><div><strong>Assigned Employees</strong></div></td>
+                <td><div></div></td>
+                <td><div>[TF_EMP1]<br>[TF_EMP2]</div></td>
+              </tr>
+              
+              <tr>
+                <td colspan="2"><div><strong>Previous Complain </strong></div></td>
+                <td><div></div></td>
+                <td><div>[TF_ComplainPrev]</div></td>
+              </tr>
+              <tr>
+                <td colspan="2"><div><strong>Text </strong></div></td>
+                <td><div></div></td>
+                <td><div>
+                  <label>[TF_text]</label>
+                </div></td>
+              </tr>
+              <tr>
+                <td colspan="2"><div><strong>Current Status </strong></div></td>
+                <td><div><span></span></div></td>
+                <td><div>
+                  <label></label>
+                  <label>[TF_CStatus]</label>
+                </div></td>
+              </tr>
+              <tr>
+                <td height="35" colspan="2">Update Complain:</td>
+                <td>&nbsp;</td>
+                <td><span>
+                  <label></label>
+                </span></td>
+              </tr>
+              <tr>
+                <td colspan="2"><div><strong>Text</strong></div></td>
+                <td>&nbsp;</td>
+                <td><div>
+                  <label>
+                    <textarea name="text" id="text"></textarea>
+                  </label>
+                </div></td>
+              </tr>
+              <tr>
+                <td colspan="2"><div><strong>Complain Nature </strong></div></td>
+                <td>&nbsp;</td>
+                <td>[TF_ComplainNature1]</td>
+              </tr>
+              <tr>
+                <td colspan="2"><div><strong>New Status </strong></div></td>
+                <td>&nbsp;</td>
+                <td><div>
+                  <label>
+                    <select name="status" id="status">
+                      <option value="1">Solved</option>
+                      <option value="0">Pending</option>
+                    </select>
+                  </label>
+                </div></td>
+              </tr>
+              <tr>
+                <td colspan="2">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td colspan="2">Add Inventory: ITEM </td>
+                <td>&nbsp;</td>
+                <td><span>
+                  <label></label>
+                  <span>Quantity </span></span></td>
+              </tr>
+              <tr>
+                <td colspan="2"><div align="center">[TF_ITEM1]</div></td>
+                <td>&nbsp;</td>
+                <td><span>
+                  <input name="qty1" type="text" id="qty1" size="10" />
+                </span></td>
+              </tr>
+              <tr>
+                <td colspan="2"><div align="center">[TF_ITEM2]</div></td>
+                <td>&nbsp;</td>
+                <td><span>
+                  <input name="qty2" type="text" id="qty2" size="10" />
+                </span></td>
+              </tr>
+              <tr>
+                <td colspan="2"><div align="center">[TF_ITEM3]</div></td>
+                <td>&nbsp;</td>
+                <td><span>
+                  <input name="qty3" type="text" id="qty3" size="10" />
+                </span></td>
+              </tr>
+              <tr>
+                <td colspan="2">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td><input type="submit" name="Submit" value="Submit" /></td>
+              </tr>
+              <tr>
+                <td colspan="2">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+            </table> </form>             
+            <p>&nbsp;</p>
+          
+        </table>
+        <div class="article"></div>
+      </div>
+      <div class="sidebar">
+        <div class="gadget">
+          <h2 class="star"> Menu</h2>
+          <div class="clr">
+            <table width="100%" border="0" align="center" cellpadding="3" cellspacing="3">
+              <tr>
+                <td height="37" align="center"><a href="Home.php?act=1"><img src="images/bereadyforcall.jpg" width="173" height="37" border="0" /></a></td>
+              </tr>
+              <tr>
+                <td height="37" align="center"><a href="complainmain1.php"><img src="images/searchcomplaint.jpg" width="173" height="37" border="0" /></a></td>
+              </tr>
+              <tr>
+                <td height="37" align="center"><a href="newcomplain.php"><img src="images/Newcomplaint.jpg" width="173" height="37" border="0" /></a></td>
+              </tr>
+              <tr>
+                <td height="37" align="center"><a href="SignOut.php"><img src="images/signout.jpg" width="173" height="37" border="0" /></a></td>
+              </tr>
+            </table>
+          </div>
+</div>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="fbg">
+    <div class="fbg_resize">
+      <div class="col c3">
+        <table width="353" border="0" align="left">
+          <tr>
+            <td colspan="3" align="center"><strong>Attached Documents </strong></td>
+            
+          </tr>
+          [TF_DOC_TABLE]
+  <tr>
+    <td width="76" align="center"><strong>New Doc Upload</strong></td>
+    <td width="4">&nbsp;</td>
+    <td width="259"><form action="upload_file.php" method="post"
+enctype="multipart/form-data">
+      <input type="file" name="file" id="file" />
+      <input type="hidden" name="compid" value="[TF_ComplainNo]" />
+      <input type="submit" name="submit" value="Submit" />
+    </form></td>
+  </tr>
+        </table>
+      </div>
+      <div class="clr">
+        <p>&nbsp;</p>
+        <p><strong>Inventory assigned:</strong><br />
+        </p>
+		
+        <table width="100%" border="0" align="center"><strong>[TF_TABLEINV]</strong>
+          <tr class="tableheaders">
+            <td width="139" height="26">Serial No.</td>
+            <td width="162">Item</td>
+            <td width="93">Date</td>
+            <td width="131">Quantity</td>
+            <td width="98">Action</td>
+            <td width="71">User</td>
+            <td width="206">Remarks</td>
+          </tr>
+          
+  <tr>
+    <td height="21">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+        </table>
+        <br /><p>
+          </p>
+        <table width="100%" border="0" >
+          <tr class="tableheaders">
+            <td width="91" height="23">Thread ID</td>
+            <td width="107" height="23">Date</td>
+            <td width="107" height="23">Agent</td>
+            <td width="289" height="23">Text</td>
+          </tr>
+          [TF_TABLE]
+  <tr>
+    <td height="23">&nbsp;</td>
+    <td height="23">&nbsp; </td>
+    <td height="23">&nbsp;</td>
+    <td height="23">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="26">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+        </table>
+      </div>
+    </div>
+    <div class="footer">
+      <p class="lf">Designed by <a href="#">Alisons Technology</a></p>
+      <div class="clr"><span class="content_resize"></span></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

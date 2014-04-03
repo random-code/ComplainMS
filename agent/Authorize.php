@@ -1,0 +1,19 @@
+<?php
+session_start();
+$UID = $_SESSION['UID'];
+$SID =	$_SESSION['SID'];
+$AUID=	$_SESSION['AUID']	;
+
+//print("\$UID : $UID<br>");
+//print("\$SID : $SID<br>");
+if($SID=="")
+{
+	require_once("_constants.php");
+	require_once ("{$constant['class_path']}/islayout.php");
+	$lay = new IS_Layout("{$constant['temple_path']}/login.htm");
+	$lay->replace('TF_IMAGE_PATH',$constant['images_path']);
+	$lay->replace('TF_MSG',"Either your session is expired or you are not logged in");
+	$lay->display();
+	exit;	
+}
+?>

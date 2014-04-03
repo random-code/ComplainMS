@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>AllCallSoft-Agent Panel</title>
+<style type="text/css">
+<!--
+.header {
+	background-image: url(images/header_bg.jpg);
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.style1 {
+	color: #0000FF;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 12px;
+}
+.style11 {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; }
+.style12 {color: #FF0000}
+.style2 {font-size: small}
+.style5 {	color: #FF0000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+}
+.style6 {	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+}
+.style7 {	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+.style8 {font-size: 10px}
+.style9 {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; }
+-->
+</style>
+</head>
+<body onLoad="Start();">
+<table  width="100%" class="header" border="0" cellpadding="0" cellspacing="0" >
+  <!--DWLayoutTable-->
+  <tr align="right">
+    <td width="100%" height="257" align="center" valign="middle"><img src="images/text1.jpg" width="328" height="101" /></td>
+    <td width="450" align="right"  valign="top"><img src="images/banner.jpg" width="450" height="257" /></td>
+  </tr>
+  <tr>
+    <td height="0"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td height="1"></td>
+    <td><img src="spacer.gif" alt="" width="450" height="1" /></td>
+  </tr>
+</table>
+
+
+<table width="100%"  border="0" cellspacing="0" cellpadding="0" height="608">
+  <tr>
+    <td width="11%" height="589" valign="top" class="style1"><strong>Agent :</strong><br />
+      [TF_AGENT]<br />
+      <strong>Exten:</strong><br />
+[TF_EXT]</td>
+    <td width="67%" valign="top">&nbsp;
+      &nbsp;
+      <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+          <td></td>
+        </tr>
+        <tr>
+          <td height="19" align="left" valign="top">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="19" align="left" valign="top">&nbsp;</td>
+        </tr>
+        <tr>
+          <td height="19" align="left" valign="top"><table width="100%" border="1">
+          </table></td>
+        </tr>
+        <tr>
+          <td height="267" align="left" valign="top"><div align="left">
+              <form action="Customer2.php" method="post" name="form1" id="form1">
+                <table width="589" border="0">
+                  <tr>
+                    <td colspan="3"><div align="center"> <span class="style12">[TF_MSG]</span></div></td>
+                  </tr>
+                  <tr>
+                    <td width="181"><div align="right"><font size="2" face="Verdana">Search key </font></div></td>
+                    <td width="1" bgcolor="#DBF0DF">&nbsp;</td>
+                    <td width="393"><font face="Verdana">
+                      <input name="name" type="text" id="name0" size="20" maxlength="40" />
+                    </font></td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td bgcolor="#DBF0DF">&nbsp;</td>
+                    <td>leave blank to list all.</td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td bgcolor="#DBF0DF">&nbsp;</td>
+                    <td><input type="submit" name="Submit" value="Search &gt;&gt;" /></td>
+                  </tr>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td bgcolor="#DBF0DF">&nbsp;</td>
+                    <td>&nbsp;</td>
+                  </tr>
+                </table>
+              </form>
+            <br />
+          </div></td>
+        </tr>
+      </table>
+    <div align="center" id="mydiv"></div></td>
+    <td width="22%" valign="top"><span>
+	<img src="images/menu.jpg" width="224" height="247" border="0" usemap="#Map2" />
+    </span>    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="top">&nbsp;</td>
+    <td valign="top">&nbsp;</td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <!--DWLayoutTable-->
+
+  <tr>
+    <td width="643" height="96" background="images/lower.jpg">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>
+
+<map name="Map" id="Map">
+  <area shape="rect" coords="29,12,235,41" href="#" />
+</map>
+
+<map name="Map2" id="Map2"><area shape="rect" coords="6,53,222,81" href="Home.php" />
+<area shape="rect" coords="7,84,224,107" href="Home.php?act=0" />
+<area shape="rect" coords="9,113,218,135" href="Search.php" />
+<area shape="rect" coords="5,142,222,167" href="AddCustomer.php" />
+<area shape="rect" coords="11,171,222,193" href="ViewReminder.php" />
+<area shape="rect" coords="10,199,222,226" href="SignOut.php" />
+</map></body>
+</html>

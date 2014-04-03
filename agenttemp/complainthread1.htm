@@ -1,0 +1,260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>:: CMS :: by Alisons Technology</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="file:///D|/cms/agenttemp/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="file:///D|/cms/agenttemp/js/jquery.js"></script>
+<script type="text/javascript" src="file:///D|/cms/agenttemp/js/cufon-yui.js"></script>
+<script type="text/javascript" src="file:///D|/cms/agenttemp/js/arial.js"></script>
+<script type="text/javascript" src="file:///D|/cms/agenttemp/js/cuf_run.js"></script>
+<script type="text/javascript" src="file:///D|/cms/agenttemp/js/radius.js"></script>
+
+</head>
+<body>
+<div class="main">
+  <div class="header">
+    <div class="header_resize">
+      <div class="logo"> <img src="file:///D|/cms/agenttemp/images/logo_img.gif" alt="" width="51" height="48" />
+        <h1>MES<small>Complaint Management System </small></h1>
+      </div>
+      <div class="clr"></div>
+      <div class="menu_nav">
+      
+        <div class="search">
+          <img src="file:///D|/cms/agenttemp/images/userpic.gif" width="40" height="40" />
+           <strong> Agent: [TF_AGENT] Extension :[TF_EXT]</strong>
+</div>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="clr"></div>
+  <div class="content">
+    <div class="content_resize">
+      <div class="mainbar">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tableheaders2">
+          <tr>
+            <td> 
+            <form id="form1" name="form1" method="post" action="">
+            <table width="100%" border="0" align="center" cellpadding="2" cellspacing="2">
+              <tr>
+                <td colspan="5" class="style8"><div align="center">[TF_ERR]</div></td>
+              </tr>
+              <tr>
+                <td width="64"><a href="file:///D|/cms/agenttemp/complainprint.php?id=[TF_ComplainNo]" target="_blank"><img src="file:///D|/cms/agenttemp/images/print.jpg" alt="print" width="44" height="38" /></a></td>
+				<td width="59"><div align="left"><a href="file:///D|/cms/agenttemp/complainprint.php?id=[TF_ComplainNo]" target="_blank">Print</a></div></td>
+                
+                <td colspan="3" >&nbsp;</td>
+              </tr>
+              <tr>
+                <td colspan="2"><div>Date and Time :</div></td>
+                <td colspan="3">[TF_Date]</td>
+                </tr>
+              <tr>
+                <td colspan="2">Complain Number:</td>
+                <td colspan="3">[TF_ComplainNo]</td>
+                </tr>
+              <tr>
+                <td colspan="2"><div>Accomodation</div></td>
+                <td colspan="3"><input name="acco" type="text" id="acco" value="[TF_Acc] " /></td>
+                </tr>
+              <tr>
+                <td colspan="2">St.</td>
+                <td colspan="3"><input name="st" type="text" id="st" value="[TF_ACCOM2]" size="20" /></td>
+              </tr>
+              <tr>
+                <td colspan="2">Phone</td>
+                <td colspan="3"><label>[TF_Phn]<br>
+                </label></td>
+              </tr>
+              <tr>
+                <td colspan="2"><div>Name</div></td>
+                <td colspan="3"><div>
+                  <input name="name" type="text" id="name" value="[TF_Name]" />
+                </div></td>
+              </tr>
+              <tr>
+                <td colspan="2"><div>Assigned Employees</div>
+                  <div></div></td>
+                <td width="115">[TF_EMP1]</td>
+                <td width="66">[TF_EMP2]</td>
+                <td width="284">&nbsp;</td>
+              </tr>
+
+              <tr>
+                <td colspan="2">Division</td>
+                <td colspan="3"><div>[TF_DIV]</div></td>
+              </tr>
+
+              <tr>
+                <td colspan="2"><div>Previous Complain </div></td>
+                <td colspan="3">&nbsp;</td>
+                </tr>
+              
+              <tr>
+                <td colspan="2">Current Status </td>
+                <td colspan="3">[TF_CStatus]</td>
+              </tr>
+              <tr>
+                <td colspan="2"><div>Text</div></td>
+                <td colspan="3"><div>
+                  <label>[TF_text]</label>
+                </div></td>
+              </tr>
+              <tr>
+                <td colspan="2"><div>Update Complain:</div></td>
+                <td colspan="3"><div></div></td>
+              </tr>
+              <tr>
+                <td colspan="2">Text</td>
+                <td colspan="3"><div>
+                  <label></label>
+                  <textarea name="text" id="text"></textarea>
+                </div></td>
+              </tr>
+              <tr>
+                <td height="35" colspan="2">New Status </td>
+                <td colspan="3"><span>
+                  <label></label>
+                  <select name="status" id="status">
+                    <option value="1">Solved</option>
+                    <option value="0">Pending</option>
+                  </select>
+                </span></td>
+              </tr>
+              <tr>
+                <td colspan="2">Add Inventory: </td>
+                <td colspan="3">&nbsp;</td>
+              </tr>
+              <tr>
+                <td colspan="5"><table width="100%" border="0" cellspacing="1" cellpadding="1">
+                  <tr>
+                    <td>[TF_ITEM1]</td>
+                    <td><input name="qty1" type="text" id="qty1" value="Quantity" size="10" /></td>
+                    </tr>
+                  <tr>
+                    <td>[TF_ITEM2]</td>
+                    <td><input name="qty2" type="text" id="qty2" value="Quantity" size="10" /></td>
+                    </tr>
+                  <tr>
+                    <td>[TF_ITEM3]</td>
+                    <td><input name="qty3" type="text" id="qty3" value="Quantity" size="10" /></td>
+                    </tr>
+                </table></td>
+                </tr>
+              <tr>
+                <td colspan="2">&nbsp;</td>
+                <td colspan="2"><input type="submit" value='Submit' /></td>
+                <td>&nbsp;</td>
+              </tr>
+            </table> 
+            </form>             
+     
+            </table>
+        <div class="article"></div>
+      </div>
+      <div class="sidebar">
+        <div class="gadget">
+          <h2 class="star"> Menu</h2>
+          <div class="clr">
+            <table width="100%" border="0" align="center" cellpadding="3" cellspacing="3">
+              <tr>
+                <td height="37" align="center"><a href="file:///D|/cms/agenttemp/Home.php?act=1"><img src="file:///D|/cms/agenttemp/images/bereadyforcall.jpg" width="173" height="37" border="0" /></a></td>
+              </tr>
+              <tr>
+                <td height="37" align="center"><a href="file:///D|/cms/agenttemp/complainmain1.php"><img src="file:///D|/cms/agenttemp/images/searchcomplaint.jpg" width="173" height="37" border="0" /></a></td>
+              </tr>
+              <tr>
+                <td height="37" align="center"><a href="file:///D|/cms/agenttemp/newcomplain.php"><img src="file:///D|/cms/agenttemp/images/Newcomplaint.jpg" width="173" height="37" border="0" /></a></td>
+              </tr>
+              <tr>
+                <td height="37" align="center"><a href="file:///D|/cms/agenttemp/SignOut.php"><img src="file:///D|/cms/agenttemp/images/signout.jpg" width="173" height="37" border="0" /></a></td>
+              </tr>
+            </table>
+          </div>
+</div>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="fbg">
+    <div class="fbg_resize">
+      <div class="col c3">
+        <table width="353" border="0" align="left">
+          <tr>
+            <td colspan="3" align="center"><strong>Attached Documents </strong></td>
+            
+          </tr>
+          [TF_DOC_TABLE]
+  <tr>
+    <td width="102" align="center"><strong>New Doc Upload</strong></td>
+    <td width="1">&nbsp;</td>
+    <td width="236"><form action="file:///D|/cms/agenttemp/upload_file.php" method="post"
+enctype="multipart/form-data">
+      <input type="file" name="file" id="file" />
+      <input type="hidden" name="compid" value="[TF_ComplainNo]" />
+      <input type="submit" name="submit" value="Submit" />
+    </form></td>
+  </tr>
+        </table>
+      </div>
+      <div class="clr">
+        <p>&nbsp;</p>
+        <p><strong>Inventory assigned:</strong><br />
+        </p>
+		
+        <table width="100%" border="0" align="center"><strong>[TF_TABLEINV]</strong>
+          <tr class="tableheaders">
+            <td width="38" height="26">S.No.</td>
+            <td width="193">Item</td>
+            <td width="107">Date</td>
+            <td width="79">Quantity</td>
+            <td width="135">Action</td>
+            <td width="142">User</td>
+            <td width="206">Remarks</td>
+          </tr>
+          
+  <tr>
+    <td height="21">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+        </table>
+        <br /><p>
+          </p>
+        <table width="100%" border="0" >
+          <tr class="tableheaders">
+            <td width="91" height="23">Thread ID</td>
+            <td width="107" height="23">Date</td>
+            <td width="107" height="23">Agent</td>
+            <td width="289" height="23">Text</td>
+          </tr>
+          [TF_TABLE]
+  <tr>
+    <td height="23">&nbsp;</td>
+    <td height="23">&nbsp; </td>
+    <td height="23">&nbsp;</td>
+    <td height="23">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="26">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+        </table>
+      </div>
+    </div>
+    <div class="footer">
+      <p class="lf">Designed by <a href="#">Alisons Technology</a></p>
+      <div class="clr"><span class="content_resize"></span></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<?php
+
+class SimpleJax {
+
+// Function: simplejax
+// Description: The SimpleJax function builds the JavaScript necessary to perform AJAX
+// operations. It requires six inputs:
+//
+// $function_name - The name of the JavaScript function you are creating. This function
+// should be called when the user fires the script by pushing a button, or performing
+// some other action.
+//
+// $formid - The ID of the form performing this AJAX call.
+//
+// $remoteurl - The base URL of the remote script you are calling. For example: ajax.php
+//
+// $return_type - This can either be "div" or "form" . If "div", the result of this
+// AJAX call is sent to the DIV with the ID you specify. If "form", the result is
+// sent to the form field you specify.
+//
+// $return_id - The ID of the element you are sending the result to.
+//
+// $inputs - This is an array. It is comprised of the form inputs that you want to pass
+// to the remote script.
+//
+// Note: This function requires that you include ajax_init.js in your header.
+
+function SimpleJax($function_name, $formid, $remoteurl, $div_id) {
+
+print("<div style='visibility: hidden;'><img src='./images/ajax-animation.gif'></div>");
+
+print("<script type=\"text/javascript\">\n\n");
+
+print("function $function_name() {\n\n");
+
+print("
+
+	var theForm = document.forms[0];
+	
+	mylength = theForm.elements.length;
+	
+	mystring = \"\";
+	
+	mycounter = 0;
+	
+	tmpcounter = 0;
+	
+	while ( mycounter < mylength ) {
+	
+		mytype = theForm.elements[mycounter].type;
+		
+		if ( mytype != 'button' ) {
+		
+			myname = theForm.elements[mycounter].name;
+			myvalue = theForm.elements[mycounter].value;
+			
+			if ( tmpcounter == 0 ) {
+
+				myvalue = myvalue.replace(/&/g,\"zzz\");
+			
+				mystring = myname + \"=\" + myvalue;
+			
+			} else {
+
+				myvalue = myvalue.replace(/&/g,\"zzz\");
+			
+				mystring = mystring + \"&\" + myname + \"=\" + myvalue;
+			
+			}
+			
+			tmpcounter = tmpcounter + 1;
+		
+		}
+			
+		mycounter = mycounter + 1;
+	
+	}
+	
+	ajaxURL='$remoteurl' + '?' + mystring;
+	
+	document.getElementById(\"$div_id\").innerHTML = \"<img src='./images/ajax-animation.gif'>\";
+
+	xmlhttp.open(\"GET\", ajaxURL, true);
+	xmlhttp.onreadystatechange=function() {
+	if (xmlhttp.readyState==4) {
+
+		if ( xmlhttp.responseText == \"\" ) {
+		
+		} else {
+		
+			ajaxResponse = xmlhttp.responseText;
+			
+			document.getElementById(\"$div_id\").innerHTML = ajaxResponse;
+
+		}					   
+	    
+	}
+	}
+	xmlhttp.send(null);
+
+}
+	
+");
+
+print("</script>");
+
+}
+
+// End simplejax
+
+}
+
+?>

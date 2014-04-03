@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>MES</title>
+<style type="text/css">
+<!--
+.header {
+	background-image: url(../agenttemp/images/header_bg.jpg);
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.style1 {
+	color: #0000FF;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 12px;
+}
+.style14 {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: x-small; }
+.style15 {font-size: x-small}
+.style17 {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: x-small; font-weight: bold; }
+.style20 {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: x-small; font-weight: bold; color: #FFFFFF; }
+-->
+</style>
+<script language=javascript>
+function openWindow(url, wname, width, height) {
+
+window.open(url, wname, "height=" + height + ",width=" + width + "location = 0, status = 1, resizable = 0, scrollbars=1, toolbar = 0");
+
+return true;
+
+}
+
+</script>
+</head>
+<body >
+<table  width="100%" class="header" border="0" cellpadding="0" cellspacing="0" >
+  <!--DWLayoutTable-->
+  
+  
+    <td width="100%" height="0"></td>
+    <td></td>
+  </tr>
+  
+    <td height="1"></td>
+    <td><img src="../agenttemp/spacer.gif" alt="" width="450" height="1" /></td>
+  </tr>
+</table>
+
+
+<table width="100%"  border="0" cellspacing="0" cellpadding="0" height="646">
+  
+    <td height="19" colspan="3" valign="top" class="style1"><img src="../agenttemp/images/mes.jpg" width="1024" height="194" /></td>
+  </tr>
+  
+    <td width="11%" height="589" valign="top" class="style1"><strong>Admin Panel <br />
+    </strong>
+      <table width="174" border="1" align="center">
+        
+          <td><div align="center"><a href="complainmain1.php">Complains</a></div></td>
+        </tr>
+        
+          <td><div align="center"><a href="InvMain.php">Inventory</a></div></td>
+        </tr>
+        
+          <td><div align="center"><a href="InvMain2.php">Inventory Summary </a></div></td>
+        </tr>
+        
+          <td><div align="center"><a href="PhoneBook.php">Phone Book Info </a></div></td>
+        </tr>
+        
+          <td><div align="center"><a href="Users.php">Users</a></div></td>
+        </tr>
+        
+          <td><div align="center"><a href="SignOut.php">Sign Out</a></div></td>
+        </tr>
+      </table>
+    <br /></td>
+    <td width="67%" valign="top">&nbsp;
+      &nbsp;
+      <form id="form1" name="form1" method="post" action="" >
+        <table width="585" border="0">
+          
+            <td colspan="3"><span class="style17">Phone Book Info </span></td>
+          </tr>
+          
+            <td width="156"><div align="right"><a href="../agenttemp/complainmain1print.php?[param]"></a> </div></td>
+            <td width="1"><span class="style15"></span></td>
+            <td width="414"><span class="style15"></span></td>
+          </tr>
+          
+            <td><div align="right"><span class="style14">id </span></div></td>
+            <td><span class="style15"></span></td>
+            <td><span class="style15">
+              <label></label>
+              <input name="id" type="text" id="id" />
+            </span></td>
+          </tr>
+          
+            <td><div align="right"><span class="style14">Block</span></div></td>
+            <td><span class="style15"></span></td>
+            <td><span class="style15">
+              <input name="blck" type="text" id="blck" />
+            </span></td>
+          </tr>
+          
+            <td><div align="right"><span class="style14">Flat</span></div></td>
+            <td><span class="style15"></span></td>
+            <td><span class="style15">
+              <input name="flat" type="text" id="flat" />
+            </span></td>
+          </tr>
+          
+            <td><div align="right"><span class="style14">P. No. </span></div></td>
+            <td>&nbsp;</td>
+            <td><span class="style15">
+              <input name="pno" type="text" id="pno" />
+            </span></td>
+          </tr>
+          
+            <td><div align="right"><span class="style14">Rank</span></div></td>
+            <td><span class="style15"></span></td>
+            <td><span class="style15">
+              <label>
+              <input name="rank" type="text" id="rank" />
+              </label>
+            </span></td>
+          </tr>
+          
+            <td><div align="right"><span class="style14">Name </span></div></td>
+            <td><span class="style15"></span></td>
+            <td><span class="style15">
+              <label></label>
+              <input name="name" type="text" id="name" />
+            </span></td>
+          </tr>
+          
+            <td><div align="right"><span class="style14">Phone</span></div></td>
+            <td><span class="style15"></span></td>
+            <td><span class="style15">
+              <input name="phn" type="text" id="phn" />
+            </span></td>
+          </tr>
+          
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><label>
+              <input type="submit" name="Submit" value="Add New" />
+            </label></td>
+          </tr>
+        </table>
+        <table width="883" border="1" cellpadding="0" cellspacing="0">
+          
+            <td width="91" bgcolor="#0000FF"><span class="style20">Id</span></td>
+            <td width="91" bgcolor="#0000FF"><span class="style20">Block</span></td>
+            <td width="91" bgcolor="#0000FF"><span class="style20">Flat</span></td>
+            <td width="91" bgcolor="#0000FF"><span class="style20">P no.</span></td>
+            <td width="107" bgcolor="#0000FF"><span class="style20">Rank</span></td>
+            <td width="107" bgcolor="#0000FF"><span class="style20">Name</span></td>
+            <td width="107" bgcolor="#0000FF"><span class="style20">Phone</span></td>
+            <td width="93" bgcolor="#0000FF"><span class="style20">Remarks</span></td>
+          </tr>
+[TF_TABLE]          
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            </tr>
+        </table>
+        <p>&nbsp;</p>
+      </form>
+    <div align="center" id="mydiv"></div></td>
+    <td width="22%" valign="top">&nbsp;</td>
+  </tr>
+  
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  
+    <td valign="top">&nbsp;</td>
+    <td valign="top">&nbsp;</td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <!--DWLayoutTable-->
+
+  
+    <td width="643" height="96" background="../agenttemp/images/lower.jpg">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>
+
+<map name="Map" id="Map">
+  <area shape="rect" coords="29,12,235,41" href="#" />
+</map>
+</body>
+</html>

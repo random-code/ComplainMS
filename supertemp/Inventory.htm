@@ -1,0 +1,175 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<link href="[TF_TEMP_PATH]/mystyles.css" rel="stylesheet" type="text/css">
+<title>USS-Cpanel</title>
+<style>
+<!--
+.style2 {font-size: small}
+.style5 {color: #FF0000}
+-->
+</style>
+</head>
+
+<body>
+
+<table width="78%" border="0" align="center" cellpadding="0" cellspacing="0">
+	<tr>
+		<td width="7" valign="top" background="[TF_IMAGE_PATH]/pix.gif">
+		<img src="[TF_IMAGE_PATH]/pix.gif" width="1" height="1"></td>
+		<td width="757" valign="top">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td valign="top">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td>&nbsp;</td>
+              </tr>
+              <tr> 
+                <td>
+				<table width="100%"  border="0" cellspacing="0" cellpadding="0" id="table2">
+              <tr> 
+                [TF_header]
+              </tr>
+            </table></td>
+              </tr>
+              <tr> 
+                <td background="[TF_IMAGE_PATH]/pix.gif" bgcolor="#CC9900"><div align="center" class="style2">&nbsp;</div></td>
+				  </tr>
+				</table>
+				</td>
+			</tr>
+			<tr>
+				<td height="554" valign="top">
+				<table width="105%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td width="21%" height="589" valign="top" bgcolor="DBF0DF">
+						[TF_LeftNav]
+						</td>
+						<td width="79%" valign="top">
+						<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+							<tr>
+								<td></td>
+							</tr>
+							<tr>
+							  <td height="19" align="left" valign="top"><a href="Inventory.php">Add Inventory Type</a> | <a href="AddInvItem.php">Add Inventory Item</a> | <a href="InventoryReport.php">See Report</a> | <a href="SeeInvRequest.php">See Inventory Requests</a> </td>
+						  </tr>
+							<tr>
+							  <td height="19" align="left" valign="top">
+								<table width="100%" border="1">
+								</table>
+								</td>
+							</tr>
+							<tr>
+								<td height="267" align="left" valign="top">
+								<div align="left">
+									<form name="form1" method="post" enctype="multipart/form-data" >
+										<table width="589" border="0">
+											<tr>
+												<td colspan="3">
+												<div align="center">
+													<span class="style5">[TF_MSG]</span></div>												</td>
+											</tr>
+
+											<tr>
+												<td width="181">
+												<div align="right"><font size="2" face="Verdana">Type</font></div>												</td>
+												<td width="1" bgcolor="#DBF0DF">&nbsp;</td>
+												<td width="393"><font face="Verdana">[TF_INVTYPE] <a href="AddMoreType.php">add</a> </font></td>
+											</tr>
+											
+											
+										    <tr>
+                                              <td><div align="right"><font size="2" face="Verdana">Name</font></div></td>
+										      <td bgcolor="#DBF0DF">&nbsp;</td>
+										      <td><input name="name" type="text" id="name"></td>
+									      </tr>
+									      <tr>
+											  <td><div align="right"><font size="2" face="Verdana">Make</font></div></td>
+											  <td bgcolor="#DBF0DF">&nbsp;</td>
+											  <td><label>
+											    <input name="make" type="text" id="make">
+											  </label></td>
+											</tr>
+											<tr>
+                                              <td><div align="right"><font size="2" face="Verdana">Model Detail </font></div></td>
+											  <td bgcolor="#DBF0DF">&nbsp;</td>
+											  <td><label>
+                                                <input name="model" type="text" id="model">
+                                              </label></td>
+										  </tr>
+											<tr>
+                                              <td><div align="right"><font size="2" face="Verdana">Vendor</font></div></td>
+											  <td bgcolor="#DBF0DF">&nbsp;</td>
+											  <td><label>
+                                                <input name="vendor" type="text" id="vendor">
+                                              </label></td>
+										  </tr>
+											
+											<tr>
+                                              <td><div align="right"><font size="2" face="Verdana">Sell Price(Tentative) </font></div></td>
+											  <td bgcolor="#DBF0DF">&nbsp;</td>
+											  <td><label>
+                                                <input name="sell" type="text" id="sell">
+                                              </label></td>
+										  </tr>
+											<tr>
+                                              <td><div align="right"><font size="2" face="Verdana">Description</font></div></td>
+											  <td bgcolor="#DBF0DF">&nbsp;</td>
+											  <td><label>
+                                                <textarea name="descr" cols="70" rows="20" id="descr"></textarea>
+                                              </label></td>
+										  </tr>
+											<tr>
+                                              <td><div align="right"><font size="2" face="Verdana">Image</font></div></td>
+											  <td bgcolor="#DBF0DF">&nbsp;</td>
+											  <td><label>
+											  <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
+                                                <input name="image" type="file" id="sell">
+                                              </label></td>
+										  </tr>
+											<tr>
+											  <td>&nbsp;</td>
+											  <td bgcolor="#DBF0DF">&nbsp;</td>
+											  <td><input type="submit" name="Submit" value="Add &gt;&gt;"></td>
+										  </tr>
+
+											<tr>
+											  <td>&nbsp;</td>
+											  <td bgcolor="#DBF0DF">&nbsp;</td>
+											  <td>&nbsp;</td>
+										  </tr>
+										</table>
+									</form>
+									<br>
+								</div>
+								</td>
+							</tr>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td valign="top" bgcolor="DBF0DF">&nbsp;</td>
+						<td valign="top">
+						<table width="100%" border="0" cellspacing="1" cellpadding="1">
+							<tr>
+								<td align="center" class="text" bgcolor="#DBF0DF">&nbsp;</td>
+							</tr>
+						</table>
+						</td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+		</table>
+		</td>
+		<td width="6" valign="top" background="[TF_IMAGE_PATH]/pix.gif">
+		<img src="[TF_IMAGE_PATH]/pix.gif" width="1" height="1"></td>
+	</tr>
+</table>
+
+</body>
+
+</html>

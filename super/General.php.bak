@@ -1,0 +1,445 @@
+<?php
+// Function List
+//1) GetAdminName
+//2) GetAdminDetail
+//this function does get Account Info HTML
+
+require_once("_Db.php"); //will also includes  _constants.php
+
+function GetAdminName($pAUID)
+{
+		$strSQL		= "
+					select * from  tblagent
+					where agentname=\"$pAUID\"				";
+	#print "\$strSQL	: $strSQL	<br>\n";
+				$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+			$myRow		= mysql_fetch_array($QueryResult);
+			#print $myRow['uid']	;
+
+				if ($myRow['agentname'] == ""){
+						print "Unknown Error Occured, please try after some time!!!!!";
+							#print "<META HTTP-EQUIV=Refresh CONTENT='0; URL=LogOut.php'> ";
+						exit;
+					}		
+		return $myRow['fname'] ." ". $myRow['lname'] ;
+
+
+}
+
+function GetAdminID($pAUID)
+{
+		$strSQL		= "
+					select * from  tblagent
+					where exten=\"$pAUID\"				";
+#	print "\$strSQL	: $strSQL	<br>\n";
+			$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+			$myRow		= mysql_fetch_array($QueryResult);
+	#		print $myRow['exten']	;
+
+				if ($myRow['agentname'] == ""){
+						print "Unknown Error Occured, please try after some time!!!!!";
+							#print "<META HTTP-EQUIV=Refresh CONTENT='0; URL=LogOut.php'> ";
+						exit;
+					}		
+		return $myRow['agentname'] ;
+
+
+}
+
+
+function GetAgentCode($pAUID)
+{
+		$strSQL		= "
+					select * from  tblagent
+					where exten=\"$pAUID\"				";
+#	print "\$strSQL	: $strSQL	<br>\n";
+			$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+			$myRow		= mysql_fetch_array($QueryResult);
+	#		print $myRow['exten']	;
+
+				if ($myRow['agentname'] == ""){
+						print "Unknown Error Occured, please try after some time!!!!!";
+							#print "<META HTTP-EQUIV=Refresh CONTENT='0; URL=LogOut.php'> ";
+						exit;
+					}		
+		return $myRow['agentcode'] ;
+
+
+}
+
+function GetAgentCallRecCode($pAUID)
+{
+		$strSQL		= "
+					select max(id) maxid from  tblagent_call
+					where agentcode=\"$pAUID\"			and enable=0	";
+	#print "\$strSQL	: $strSQL	<br>\n";
+			$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+			$myRow		= mysql_fetch_array($QueryResult);
+	#		print $myRow['exten']	;
+
+				#if ($myRow['maxid'] == ""){
+				#		print "Unknown Error Occured, please try after some time!!!!!";
+							#print "<META HTTP-EQUIV=Refresh CONTENT='0; URL=LogOut.php'> ";
+	#					exit;
+				#	}		
+		return $myRow['maxid'] ;
+
+
+}
+
+
+function GetCompaignName($pID)
+{
+		$strSQL		= "
+					select name from tblcompaign where id='$pID'		";
+	#print "\$strSQL	: $strSQL	<br>\n";
+			$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+			$myRow		= mysql_fetch_array($QueryResult);
+			#print $myRow['uid']	;
+
+				if ($myRow['name'] == ""){
+						print "compaig Name: Unknown Error Occured, please try after some time!!!!!";
+							#print "<META HTTP-EQUIV=Refresh CONTENT='0; URL=LogOut.php'> ";
+						exit;
+					}		
+		return $myRow['name'] ;
+
+
+}
+
+
+function GetDealerName($pDealerid)
+{
+		$strSQL		= "
+					select * from  tbldealers
+					where id=\"$pDealerid\"				";
+	//print "\$strSQL	: $strSQL	<br>\n";
+			$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+			$myRow		= mysql_fetch_array($QueryResult);
+			#print $myRow['uid']	;
+
+				if ($myRow['id'] == ""){
+						print "Unknown Error Occured, please try after some time!!!!!";
+							#print "<META HTTP-EQUIV=Refresh CONTENT='0; URL=LogOut.php'> ";
+						exit;
+					}		
+		return $myRow['company'] ." - ". $myRow['name'] ;
+
+
+}
+
+
+function GetBatchName($pBatchId)
+{
+		$strSQL		= "
+					select * from  tblresellerbatch
+					where id=\"$pBatchId\"				";
+	//print "\$strSQL	: $strSQL	<br>\n";
+			$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+			$myRow		= mysql_fetch_array($QueryResult);
+			#print $myRow['uid']	;
+
+				if ($myRow['id'] == ""){
+						print "Unknown Error Occured, please try after some time!!!!!";
+							#print "<META HTTP-EQUIV=Refresh CONTENT='0; URL=LogOut.php'> ";
+						exit;
+					}		
+		return $myRow['batchnumber'] ;
+
+
+}
+
+
+function getDIDListofBatch($pID)
+{
+	$strSQL="
+	select DID_id_from,DID_id_to from tblresellerbatch
+where id=$pID
+	";
+	$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+	$myRow		= mysql_fetch_array($QueryResult);
+
+	
+	
+$DID_id_from=$myRow['DID_id_from'];
+$DID_id_to=$myRow['DID_id_to'];
+
+	$strSQL="
+		select id from tbldid where dealerid<>0
+		and specialcode=0 
+		and id>=$DID_id_from
+		and id <=$DID_id_to
+		order by id
+	";
+	//print $strSQL;
+	$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+	$myRow		= mysql_fetch_array($QueryResult);
+			$cnt=0;
+			$str= $myRow['id'] ;
+	
+	$myRow		= mysql_fetch_array($QueryResult);
+			
+	do
+	{
+				$str .=",";
+				$str .=$myRow['id'] ;
+		
+		}
+		while($myRow		= mysql_fetch_array($QueryResult));
+
+#print "\$str=$str";
+#exit;
+return $str;
+
+}
+
+function GetUSRateforPlan($pDID)
+{
+		$strSQL		= "
+		
+select countrycode,code,rate_cents_x_100,iscell,description from tblratetabledetail a, tblratetablemstr b,plans c
+where a.mstrid=b.id and c.id =$pDID
+and c.ratetable_id=b.id
+and '1360' like concat(concat(countrycode,code),'%')
+order by concat(countrycode,code) desc
+					
+	";
+	#print "\$strSQL	: $strSQL	<br>\n";
+			$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+			
+			$hash['present']				=			0;   
+			
+			if($myRow		= mysql_fetch_array($QueryResult))
+			{			
+			$hash['present']				=			1;   	
+				
+			$hash['rate_cents_x_100']          =			$myRow['rate_cents_x_100'];     
+			}
+			
+			
+			#print $myRow['uid']	;
+
+				#if ($myRow['url1'] == ""){
+				#		print "GetDIDfwdingSetting !Unknown Error Occured, please try after some time!!!!!<br>" ;
+				#			#print "<META HTTP-EQUIV=Refresh CONTENT='0; URL=LogOut.php'> ";
+				#		exit;
+				#	}		
+		return $myRow['rate_cents_x_100']/100 ;
+
+}
+
+
+function parseCurrentDate($Pdate)
+ {
+		//$r = Db->ExecuteQuery("select curdate()");
+		$r[0]=$Pdate;
+		if($Pdate=="")
+		{
+		$r = mysql_query("select curdate()");
+		$r = mysql_fetch_array($r);
+		}
+		
+		
+		$DATE =split('-',$r[0]);
+		$dd =$DATE[2];
+		$mm =$DATE[1];
+		$yy =$DATE[0];
+		
+		
+		$TempMONTH=
+								"
+								<option value=01>Jan</option>
+      							<option value=02>Feb</option>
+      							<option value=03>Mar</option>
+      							<option value=04>Apr</option>
+      							<option value=05>May</option>
+      							<option value=06>Jun</option>
+      							<option value=07>Jul</option>
+      							<option value=08>Aug</option>
+      							<option value=09>Sep</option>
+      							<option value=10>Oct</option>
+      							<option value=11>Nov</option>
+      							<option value=12>Dec</option>
+								";
+		
+		$TempDAY="
+								<option value=01>01</option>
+								<option value=02>02</option>
+								<option value=03>03</option>
+								<option value=04>04</option>
+								<option value=05>05</option>
+								<option value=06>06</option>
+								<option value=07>07</option>
+								<option value=08>08</option>
+								<option value=09>09</option>
+								<option value=10>10</option>
+								<option value=11>11</option>
+								<option value=12>12</option>
+								<option value=13>13</option>
+								<option value=14>14</option>
+								<option value=15>15</option>
+								<option value=16>16</option>
+								<option value=17>17</option>
+								<option value=18>18</option>
+								<option value=19>19</option>
+								<option value=20>20</option>
+								<option value=21>21</option>
+								<option value=22>22</option>
+								<option value=23>23</option>
+								<option value=24>24</option>
+								<option value=25>25</option>
+								<option value=26>26</option>
+								<option value=27>27</option>
+								<option value=28>28</option>
+								<option value=29>29</option>
+								<option value=30>30</option>
+								<option value=31>31</option>
+							";
+		
+		#select replace('<option value=2005 [SP_YEARSEL01]>2005</option><option value=2006 [SP_YEARSEL02]>2006</option>','value=2005','selected value=2005') ;
+		
+		$TempYEAR=
+				   "
+				   			<option value=2005>2004</option>	
+		            <option value=2005>2005</option>
+		            <option value=2006>2006</option>						
+		            <option value=2007>2007</option>						
+		            <option value=2008>2008</option>						
+		            <option value=2009>2009</option>						
+		            <option value=2010>2010</option>						
+		            ";
+		 
+		$TempYEAR = str_replace("value=$yy","selected value=$yy",$TempYEAR);
+		 
+		$TempMONTH = str_replace("value=$mm","selected value=$mm",$TempMONTH);
+		 
+		$TempDAY = str_replace("value=$dd","selected value=$dd",$TempDAY);
+		
+	$TEMP[0]=	$TempDAY;
+	$TEMP[1]=	$TempMONTH;
+	$TEMP[2]= $TempYEAR; 
+				 		
+   	return $TEMP;
+ }
+ 
+
+
+function GetDueAmount($lineid)
+{
+	
+		$strSQL		= "
+					select a.*,planname,isprepaid,line,monthly from tbllines a,tblplans  b where a.planid=b.id and a.id=$lineid
+					";
+	//print "\$strSQL	: $strSQL	<br>\n";
+			$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+			if(!($myRow		= mysql_fetch_array($QueryResult)))
+			{
+				print "GetDueAmount : UnKnow Error ";
+			}
+		$planname=$myRow['planname'];
+		$isprepaid=$myRow['isprepaid'];
+		$monthly=$myRow['monthly'];
+		$lineid=$myRow['id'];
+		$lines=$myRow['line'];
+		$topupbal=$myRow['topupbal_cents']/100;
+		$activationbal=$myRow['activationbal_cents']/100;
+		
+		$lines=$myRow['line'];
+
+//for prepaid
+		if ($isprepaid)
+	{
+		if( ($topupbal+$activationbal)  <= 0 )
+		return $monthly;	
+		else
+		return 0;	
+	}
+
+//for postpaid
+else
+	{
+		
+			$strSQL		= "
+					select ifnull(sum(amount-paidamount),0) due from tblcustomerinvoices
+					where  lineid=$lineid
+					";
+	//print "\$strSQL	: $strSQL	<br>\n";
+			$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+			if(!($myRow		= mysql_fetch_array($QueryResult)))
+			{
+				return 0;
+			}
+			else
+			return $myRow['due'];
+	
+	}
+
+
+}
+
+function GetEmployeeName($lineid)
+{
+	
+		$strSQL		= "
+					select * from tblemployees where id=$lineid
+					";
+
+			$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+			if(!($myRow		= mysql_fetch_array($QueryResult)))
+			{
+				return "NONE";
+			}
+			else
+			return $myRow['name'] . "-" . $myRow['designation'] ;
+
+
+
+
+}
+
+
+
+function GetEmployeeNameOnly($lineid)
+{
+	
+		$strSQL		= "
+					select * from tblemployees where id=$lineid
+					";
+
+			$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+			if(!($myRow		= mysql_fetch_array($QueryResult)))
+			{
+				return "NONE";
+			}
+			else
+			return $myRow['name'] ;
+
+
+
+
+}
+
+function GetEmployeeDesignation($lineid)
+{
+	
+		$strSQL		= "
+					select * from tblemployees where id=$lineid
+					";
+
+			$QueryResult	= mysql_query($strSQL) or die ("[$strSQL]<br>Error: ". mysql_error());
+			if(!($myRow		= mysql_fetch_array($QueryResult)))
+			{
+				return "NONE";
+			}
+			else
+			return $myRow['name'] . "-" . $myRow['designation'] ;
+
+
+
+
+}
+
+
+
+
+?>

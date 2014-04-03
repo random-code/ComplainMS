@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>MES</title>
+<style type="text/css">
+<!--
+.header {
+	background-image: url(images/header_bg.jpg);
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.style1 {
+	color: #0000FF;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 12px;
+}
+.style4 {font-size: x-small}
+.style5 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+.style6 {font-family: Verdana, Arial, Helvetica, sans-serif}
+.style7 {font-size: x-small; font-family: Verdana, Arial, Helvetica, sans-serif; }
+.style8 {
+	color: #FF0000;
+	font-weight: bold;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.style20 {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: x-small; font-weight: bold; color: #FFFFFF; }
+-->
+</style>
+</head>
+<body >
+<table  width="100%" class="header" border="0" cellpadding="0" cellspacing="0" >
+  <!--DWLayoutTable-->
+  
+  
+    <td width="100%" height="0"></td>
+    <td></td>
+  </tr>
+  
+    <td height="1"></td>
+    <td><img src="spacer.gif" alt="" width="450" height="1" /></td>
+  </tr>
+</table>
+
+
+<table width="100%"  border="0" cellspacing="0" cellpadding="0" height="646">
+  
+    <td height="19" colspan="3" valign="top" class="style1"><img src="images/mes.jpg" width="1024" height="194" /></td>
+  </tr>
+  
+    <td width="11%" height="589" valign="top" class="style1"><strong>Agent :</strong><br />
+      [TF_AGENT]<br />
+      <strong>Exten:</strong><br />
+[TF_EXT]</td>
+    <td width="67%" valign="top">&nbsp;
+      &nbsp;
+      <form id="form1" name="form1" method="post" action="newcomplainact.php">
+        <table width="459" border="0" cellpadding="0" cellspacing="0">
+          
+            <td colspan="3" class="style4 style8"><div align="center">[TF_ERR]</div></td>
+          </tr>
+          
+            <td width="190" class="style4"><div align="right" class="style5">Date and Time </div></td>
+            <td width="43" class="style4"><div align="right"><span class="style6"></span></div></td>
+            <td width="226" class="style4"><div align="left" class="style6">[TF_Date]</div></td>
+          </tr>
+          
+            <td class="style4"><div align="right" class="style6"><strong>Complain Number</strong></div></td>
+            <td class="style4"><div align="right"><span class="style6"></span></div></td>
+            <td class="style4"><div align="left" class="style6">[TF_ComplainNo]</div></td>
+          </tr>
+          
+            <td class="style4"><div align="right" class="style6"><strong>Accomodation</strong></div></td>
+            <td class="style4"><div align="right"><span class="style6"></span></div></td>
+            <td class="style4"><div align="left" class="style6">
+              <label>
+              <input name="acc" type="text" id="acc" />
+              </label>
+            </div></td>
+          </tr>
+          
+            <td class="style4"><div align="right" class="style6"><strong>Phone</strong></div></td>
+            <td class="style4"><div align="right"><span class="style6"></span></div></td>
+            <td class="style4"><div align="left" class="style6">
+              <input name="phn" type="text" id="phn" value="[TF_PHONE]" />
+            </div></td>
+          </tr>
+          
+            <td class="style7"><div align="right"><strong>Name</strong> </div>
+                <div align="right"></div></td>
+            <td class="style4"><div align="right"><span class="style6"></span></div></td>
+            <td class="style4"><div align="left" class="style6">
+              <input name="name" type="text" id="name" />
+            </div></td>
+          </tr>
+          
+            <td class="style4"><div align="right" class="style6"><strong>Complain Nature </strong></div></td>
+            <td class="style4"><div align="right"><span class="style6"></span></div></td>
+            <td class="style4"><div align="left" class="style6">[TF_ComplainNature]</div></td>
+          </tr>
+          
+            <td class="style4"><div align="right" class="style6"><strong>Previous Complain </strong></div></td>
+            <td class="style4"><div align="right"><span class="style6"></span></div></td>
+            <td class="style4"><div align="left" class="style6">[TF_ComplainPrev]</div></td>
+          </tr>
+          
+            <td class="style4"><div align="right" class="style6"><strong>Text </strong></div></td>
+            <td class="style4"><div align="right"><span class="style6"></span></div></td>
+            <td class="style4"><div align="left" class="style6">
+              <label>
+              <textarea name="text" id="text"></textarea>
+              </label>
+            </div></td>
+          </tr>
+          
+            <td class="style4"><div align="right" class="style6"><strong>Status </strong></div></td>
+            <td class="style4"><div align="right"><span class="style6"></span></div></td>
+            <td class="style4"><div align="left" class="style6">
+              <label>
+              <select name="status" id="status">
+                <option value="0">Pending</option>
+                <option value="1">Solved</option>
+              </select>
+              </label>
+            </div></td>
+          </tr>
+          
+            <td class="style7">&nbsp;</td>
+            <td class="style7">&nbsp;</td>
+            <td class="style4"><span class="style6">
+              <label>
+              <input type="submit" name="Submit" value="Submit" />
+              </label>
+            </span></td>
+          </tr>
+        </table>
+        <p><strong>Thread: </strong></p>
+        <table width="693" border="0">
+          
+            <td width="107" bgcolor="#0000FF"><span class="style20">Date</span></td>
+            <td width="289" bgcolor="#0000FF"><span class="style20">Text</span></td>
+          </tr>
+          [TF_TABLE]
+  
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+        </table>
+        <p>&nbsp;</p>
+      </form>
+    <div align="center" id="mydiv"></div></td>
+    <td width="22%" valign="top"><table width="200" border="1" align="center">
+      
+        <td><div align="center"><a href="Home.php?act=1">Be Ready For Call</a> </div></td>
+      </tr>
+      
+        <td><div align="center"><a href="complainmain1.php">Complain Search</a> </div></td>
+      </tr>
+      
+        <td><div align="center"><a href="newcomplain.php">Register New Complain </a></div></td>
+      </tr>
+      
+        <td><div align="center"><a href="SignOut.php">Sign Out</a></div></td>
+      </tr>
+    </table></td>
+  </tr>
+  
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  
+    <td valign="top">&nbsp;</td>
+    <td valign="top">&nbsp;</td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <!--DWLayoutTable-->
+
+  
+    <td width="643" height="96" background="images/lower.jpg">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>
+
+<map name="Map" id="Map">
+  <area shape="rect" coords="29,12,235,41" href="#" />
+</map>
+</body>
+</html>
